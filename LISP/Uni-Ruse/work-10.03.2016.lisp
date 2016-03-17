@@ -33,7 +33,7 @@
 ;; Define function
 (defun f3 (list)
   (cond ((null list) 0)
-        (t (+ (car list) (f (cdr list))))))
+        (t (+ (car list) (f3 (cdr list))))))
 
 ;; Define list and call function
 (let ((low-end) (high-end) (number) (my-list ()))
