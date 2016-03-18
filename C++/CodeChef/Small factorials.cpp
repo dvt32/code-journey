@@ -46,8 +46,8 @@ void calculateFactorial(int n) {
 		for (int j = 0; j < numberOfDigits; ++j)
 		{
 			digitByDigitProduct = a[j] * i + carryValue;    // containts digit by digit product + carry value
-			a[j] = digitByDigitProduct % 10;				        // contains the digit to store in position j
-			carryValue = digitByDigitProduct / 10;			    // contains the carry value that will be stored on later indexes
+			a[j] = digitByDigitProduct % 10;		// contains the digit to store in position j
+			carryValue = digitByDigitProduct / 10;		// contains the carry value that will be stored on later indexes
 		}
 	
 		while (carryValue > 0)
