@@ -56,4 +56,4 @@
   (print my-list)
 
   ;; Call function
-  (f my-list))
+  (f3 my-list))
