@@ -61,7 +61,7 @@ public class Solution {
 	public static void main(String[] args){
 		Scanner read = new Scanner(System.in);
 		
-		final String englishAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		final String ENGLISH_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		String pangramStatus = "pangram";
 		
 		// Enter input and check if it's valid
@@ -75,7 +75,7 @@ public class Solution {
 		// Check if the String is a pangram
 		for (int i = 0; i < englishAlphabet.length(); ++i)
 		{
-			if (s.toUpperCase().indexOf(englishAlphabet.charAt(i)) == -1)
+			if (s.toUpperCase().indexOf(ENGLISH_ALPHABET.charAt(i)) == -1)
 			{
 				pangramStatus = "not pangram";
 			}
