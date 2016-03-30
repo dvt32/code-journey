@@ -11,43 +11,45 @@
 ;;;; - работещи на дадена позиция, 
 ;;;; - които имат стаж по–малък от зададена граница.
 
-;; Функция за създаване на обект
-(defun make-person (name-value job-value internship-value)
- (let ((person name-value))
-  (setf (get person 'name) name-value)
-  (setf (get person 'job) job-value)
-  (setf (get person 'internship) internship-value)
+;; Дефинирай функция за създаване на обект
+(defun make-person (name profession experience job)
+ (let ((person name))
+  (setf (get person 'name) name)
+  (setf (get person 'profession) profession)
+  (setf (get person 'experience) experience)
+  (setf (get person 'job) job)
   person))
 
-;; Функция за създаване на асоциативен списък
+;; Дефинирай функция за създаване на асоциативен списък
 (defun create-list (my-list)
-  (let ((name) (job) (internship))
+  (let ((name) (profession) (experience) (job))
     (loop
-      (princ "Enter name or '0' to exit: ")
+      (princ "Enter name or '0' to exit: ") 
       (setq name (read))
       (when (equal name 0) (return my-list))
-      (princ "Enter job: ")
+      (princ "Enter profession: ") 
+      (setq profession (read))
+      (princ "Enter experience: ") 
+      (setq experience (read))
+      (princ "Enter job title: ") 
       (setq job (read))
-      (princ "Enter internship: ")
-      (setq internship (read))
-      (setq my-list (append my-list (list (make-person name job internship)))))))
+      (setq my-list (append my-list (list (make-person name profession experience job)))))))
 
-;; Списък, в който се съдържа резултата от create-list
+;; Съхрани резултата от create-list в списък
 (setq people-list (create-list '()))
 
-;; Функция за извеждане на имената на хора, работещи на дадена позиция със стаж по-малък от дадена граница
-(defun print-people (input-list job-to-find max-internship)
-  (cond ((null input-list) '())
-        ((and (equal (get (car input-list) 'job) job-to-find) 
-              (< (get (car input-list) 'internship) max-internship))
-         (cons (get (car input-list) 'name) 
-               (print-people (cdr input-list) job-to-find max-internship)))
-        (t (print-people (cdr input-list) job-to-find max-internship))))
+;; Дефинирай функция за извеждане на имената на хора, работещи на дадена позиция със стаж по-малък от дадена граница
+(defun print-people (my-list find-job max-experience)
+  (cond ((null my-list) '())
+        ((and (equal (get (car my-list) 'job) find-job) 
+              (< (get (car my-list) 'experience) max-experience))
+         (cons (get (car my-list) 'name) 
+               (print-people (cdr my-list) find-job max-experience)))
+        (t (print-people (cdr my-list) find-job max-experience))))
 
 ;; Въведи стойности за аргументи и извикай-функцията print-people
-(princ "Enter job to find: ")
-(setq job-to-find (read))
-(princ "Enter max internship: ")
-(setq max-internship (read))
-
-(print-people people-list job-to-find max-internship)
+(princ "Enter job title to find: ")
+(setq find-job (read))
+(princ "Enter max experience: ")
+(setq max-experience (read))
+(print-people people-list find-job max-experience)
