@@ -30,9 +30,6 @@
 ;;;; - които имат дневна тарифна ставка, равна на дадена 
 ;;;; - и са отработили не по-малко от определен брой дни за месеца.
 
-;; TODO: Finish f3-print-people
-;; TODO: Format code
-
 ;; Make person
 (defun f3-make-person (name work-days daily-pay)
   (let ((person name))
@@ -47,7 +44,7 @@
     (loop
       (princ "Enter name or '0' to quit: ")
       (setq name (read))
-      (when (equal name 0) (return))
+      (when (equal name 0) (return my-list))
       (princ "Enter work days: ")
       (setq work-days (read))
       (princ "Enter daily pay: ")
@@ -58,8 +55,9 @@
 (defun f3-print-people (input-list exact-daily-pay min-work-days)
   (cond ((null input-list) nil)
         ((and (equal (get (car input-list) 'daily-pay) exact-daily-pay)
-              (>= min-work-days (get (car input-list) 'work-days)))
+              (<= min-work-days (get (car input-list) 'work-days)))
          (cons (get (car input-list) 'name) (f3-print-people (cdr input-list) exact-daily-pay min-work-days))) 
-        (t (f3-print-people (cdr input-list) exact-daily-pay min-work-days))
-  )
-)
+        (t (f3-print-people (cdr input-list) exact-daily-pay min-work-days))))
+
+;; Store result of f3-make-list in a list
+(setq people-list (f3-make-list '()))
