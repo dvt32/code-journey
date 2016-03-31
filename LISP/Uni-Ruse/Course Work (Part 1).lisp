@@ -35,9 +35,6 @@
       (setq job (read))
       (setq my-list (append my-list (list (make-person name profession experience job)))))))
 
-;; Съхрани резултата от create-list в списък
-(setq people-list (create-list '()))
-
 ;; Дефинирай функция за извеждане на имената на хора, работещи на дадена позиция със стаж по-малък от дадена граница
 (defun print-people (my-list find-job max-experience)
   (cond ((null my-list) '())
@@ -46,6 +43,9 @@
          (cons (get (car my-list) 'name) 
                (print-people (cdr my-list) find-job max-experience)))
         (t (print-people (cdr my-list) find-job max-experience))))
+
+;; Съхрани резултата от create-list в списък
+(setq people-list (create-list '()))
 
 ;; Въведи стойности за аргументи и извикай-функцията print-people
 (princ "Enter job title to find: ")
