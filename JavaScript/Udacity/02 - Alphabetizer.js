@@ -47,5 +47,4 @@ function alphabetizer(names) {
    return names;
 }
 
-// Try logging your results to test your code!
 console.log(alphabetizer(moonWalkers).toString());
