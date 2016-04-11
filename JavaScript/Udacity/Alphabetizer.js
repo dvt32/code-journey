@@ -47,4 +47,4 @@ function alphabetizer(names) {
    return names;
 }
 
-console.log(alphabetizer(moonWalkers).toString());
+console.log(alphabetizer(moonWalkers));
