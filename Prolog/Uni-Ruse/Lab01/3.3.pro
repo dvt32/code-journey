@@ -18,6 +18,7 @@ III. 3 задача:
   б.Кои са песните, чийто изпълнител е Георги Христов?
   в.Има ли песен с композитор Ангел Заберски?
   г.Кои са песните в класацията?
+  д. Има ли автор с поне две песни в класацията?
 
 */
 
@@ -37,6 +38,10 @@ song_with_length_above_50(SONGNAME, SONGPOINTS) :-
   SONGPOINTS>50.
 song_where_artist_is_georgi_hristov(SONGNAME) :-
   song(SONGNAME, _, georgi_hristov, _, _).
+author_with_at_least_two_songs(AUTHOR) :-
+  song(SONGNAME1, _, _, AUTHOR, _),
+  song(SONGNAME2, _, _, AUTHOR, _),
+  SONGNAME1 \== SONGNAME2, !.
   
 
 /* а.Коя песен има >50 точки? */
@@ -50,3 +55,6 @@ song_where_artist_is_georgi_hristov(SONGNAME) :-
 
 /* г.Кои са песните в класацията? */
 % ?-song(SONGNAME, _, _, _, _), write(SONGNAME), nl.
+
+/* д. Има ли автор с поне две песни в класацията? */
+?-author_with_at_least_two_songs(AUTHOR), write(AUTHOR), nl. 
