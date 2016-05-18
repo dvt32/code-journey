@@ -11,10 +11,10 @@
 
 double_min(Number1, Number2, MinNumber) :-
 	Number1 < Number2,
-	MinNumber is Number1.
+	MinNumber is Number1 * 2.
 double_min(Number1, Number2, MinNumber) :-
 	Number2 < Number1,
-	MinNumber is Number2.
+	MinNumber is Number2 * 2.
 double_min(Number1, Number2, Number1).
 
 ?-double_min(4, 3, MinNumber), write(MinNumber), nl, !.
