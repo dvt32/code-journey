@@ -7,7 +7,7 @@
   (cond ((null input-list) 1)
         ((and (numberp (car input-list))
               (< (car input-list) a))
-          (* (car input-list) (multi (cdr input-list) a)))
+         (* (car input-list) (multi (cdr input-list) a)))
         (t (multi (cdr input-list) a))))
 
 ;; Call function
