@@ -19,6 +19,7 @@ int main() {
 	for (int i = 0; i < n; ++i) {
 		std::cin >> a[i];
 		if (a[i] < std::pow(-10, 9) || a[i] > std::pow(10, 9)) {
+			delete[] a;
 			return 0;
 		}
 	}
