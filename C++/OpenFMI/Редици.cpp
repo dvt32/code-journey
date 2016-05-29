@@ -23,7 +23,7 @@ int main() {
 		}
 	}
 
-	// Extract all
+	// Extract subarrays
 	for (int i = 0; i < n; ++i) {
 		int maxElement = std::numeric_limits<int>::min();
 		int minElement = std::numeric_limits<int>::max();
