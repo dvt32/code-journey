@@ -5,5 +5,5 @@
 
 (defun f (a)
   (cond ((and (floatp a) (minusp a)) (/ (* a (- a 25)) 25))
-    	  ((and (floatp a) (plusp a)) (/ (+ a 25) 25))
-    	  (t 'atom )))
+    	 ((and (floatp a) (plusp a)) (/ (+ a 25) 25))
+    	 (t 'atom )))
