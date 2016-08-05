@@ -1,9 +1,7 @@
-# Какво представлява това хранилище?
+# What is this repository about?
 
-Тук съм събрал колекция от случайни задачи, които съм решил откакто започнах да програмирам по-сериозно в началото на 2015. Хранилището се казва "cpp-journey", защото започнах именно със C++.
+This repository is a collection of random programming problems and my solutions to them. I started my programming journey with C++, hence the name "cpp-journey".
 
-Кодът определено не е оптимизиран в множеството от случаите и нарочно не желая да го променям, защото искам да документирам прогреса си в писането на програми.
+My early code is not very good, but I'm still leaving it as I originally wrote it, in order to track my own progress.
 
-Надявам се задачите да са полезни за хора, които също отскоро се занимават с програмиране. Можете да приемете тези програми като лично предизвикателство за оптимизиране на (лошо написан) код.
-
-Ще добавям още решени задачи когато имам такива!
+Hopefully this will be helpful to someone. I will keep adding new problems and solutions as I try out more programming languages and solve more challenges.
