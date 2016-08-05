@@ -1,3 +1,3 @@
-# or 'puts "Hello HackerRank!!"
+# https://www.hackerrank.com/challenges/ruby-hello-world
 
-print "Hello HackerRank!!"
+print "Hello HackerRank!!" # or 'puts "Hello HackerRank!!"
