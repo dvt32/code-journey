@@ -59,29 +59,29 @@ public class CourseWork extends Frame {
 		
 		// Get quadrant boundaries
 		/*
-		 *        Q2	|   Q1
-		 *     	  _____	| _____
+		 *     Q2	|   Q1
+		 *     _____|_____
 		 *   		|
-		 *        Q3	|   Q4
+		 *     Q3	|   Q4
 		 */
 		
-		int firstQuadrantMinX = WINDOW_MAX_X / 2;
+		int firstQuadrantMinX = (WINDOW_MAX_X / 2) + 1;
 		int firstQuadrantMinY = WINDOW_MIN_Y;
 		int firstQuadrantMaxX = WINDOW_MAX_X;
-		int firstQuadrantMaxY = WINDOW_MAX_Y / 2;
+		int firstQuadrantMaxY = (WINDOW_MAX_Y / 2) - 1;
 		
 		int secondQuadrantMinX = WINDOW_MIN_X;
 		int secondQuadrantMinY = WINDOW_MIN_Y;
-		int secondQuadrantMaxX = WINDOW_MAX_X / 2;
-		int secondQuadrantMaxY = WINDOW_MAX_Y / 2;
+		int secondQuadrantMaxX = (WINDOW_MAX_X / 2) - 1;
+		int secondQuadrantMaxY = (WINDOW_MAX_Y / 2) - 1;
 		
 		int thirdQuadrantMinX = WINDOW_MIN_X;
-		int thirdQuadrantMinY = WINDOW_MAX_Y / 2;
-		int thirdQuadrantMaxX = WINDOW_MAX_X / 2;
+		int thirdQuadrantMinY = (WINDOW_MAX_Y / 2) + 1;
+		int thirdQuadrantMaxX = (WINDOW_MAX_X / 2) - 1;
 		int thirdQuadrantMaxY = WINDOW_MAX_Y;
 		
-		int fourthQuadrantMinX = WINDOW_MAX_X / 2;
-		int fourthQuadrantMinY = WINDOW_MAX_Y / 2;
+		int fourthQuadrantMinX = (WINDOW_MAX_X / 2) + 1;
+		int fourthQuadrantMinY = (WINDOW_MAX_Y / 2) + 1;
 		int fourthQuadrantMaxX = WINDOW_MAX_X;
 		int fourthQuadrantMaxY = WINDOW_MAX_Y;
 		
