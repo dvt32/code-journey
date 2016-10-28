@@ -161,7 +161,6 @@ public class CourseWork extends Frame {
 		default:
 			break;
 		}
-
 	}
 	
 	public static void main(String[] args) {
