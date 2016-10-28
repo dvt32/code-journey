@@ -59,10 +59,10 @@ public class CourseWork extends Frame {
 		
 		// Get quadrant boundaries
 		/*
-		 *     Q2	|   Q1
-		 *     _____|_____
+		 *     	   Q2	|   Q1
+		 *    	   _____|_____
 		 *   		|
-		 *     Q3	|   Q4
+		 *         Q3	|   Q4
 		 */
 		
 		int firstQuadrantMinX = (WINDOW_MAX_X / 2) + 1;
