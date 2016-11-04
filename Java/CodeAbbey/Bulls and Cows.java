@@ -1,4 +1,4 @@
-// http://www.codeabbey.com/index/task_view/bulls-and-cows
+// http://www.codeabbey.com/index/task_view/combinations-counting
 
 import java.util.Scanner;
  
@@ -11,9 +11,6 @@ class Solution
         
     	String secretValue = read.next();
     	int numberOfGuesses = read.nextInt();
-    	
-    	// Consume newline character
-    	read.nextLine();
     	
     	for (int i = 0; i < numberOfGuesses; ++i) {
     		String guess = read.next();
