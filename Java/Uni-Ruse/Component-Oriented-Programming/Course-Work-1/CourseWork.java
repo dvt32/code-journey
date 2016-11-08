@@ -17,6 +17,8 @@
 
 import java.awt.*;
 import java.io.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class CourseWork extends Frame {
 	
@@ -31,43 +33,39 @@ public class CourseWork extends Frame {
 		setVisible(true);
 	}
 	
-	// Draws the rectangles on the screen
-	public void paint(Graphics g) { 
+	public List<int[]> getCoordinatesFromFile(String pathToFile) {
+		List<int[]> coordinates = new ArrayList<int[]>();
 		BufferedReader bufferedReader;
 		FileReader fileReader;
 		String lineInFile = "";
 		
 		// Try to open input file
 		try {
-			fileReader = new FileReader(PATH_TO_FILE);
+			fileReader = new FileReader(pathToFile);
 			bufferedReader = new BufferedReader(fileReader);
 		}
 		catch (FileNotFoundException e) {
 			System.out.println("File not found.");
-			return;
+			return coordinates;
 		}
 		
 		// Read file line by line
 		try {
 			while ((lineInFile = bufferedReader.readLine()) != null) {
 				String[] numbersOnLine = lineInFile.split("[ ,:!?]+");
-				
 				int upperLeftX = Integer.parseInt(numbersOnLine[0]);
 				int upperLeftY = Integer.parseInt(numbersOnLine[1]);
 				int lowerRightX = Integer.parseInt(numbersOnLine[2]);
 				int lowerRightY = Integer.parseInt(numbersOnLine[3]);
-				
 				int widthOfRectangle = lowerRightX - upperLeftX;
 				int heightOfRectangle = lowerRightY - upperLeftY;
-				
-				// Draw rectangle
-				g.drawRect(upperLeftX, upperLeftY, widthOfRectangle, heightOfRectangle);
+				// Add coordinates to 2D ArrayList
+				coordinates.add(new int[] { upperLeftX, upperLeftY, widthOfRectangle, heightOfRectangle });
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	    
-		
 		// Close streams
 		try {
 			fileReader.close();
@@ -75,14 +73,25 @@ public class CourseWork extends Frame {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		return coordinates;
+	}
+	
+	// Draws the rectangles on the screen
+	public void paint(Graphics g) { 
+		List<int[]> coordinates = getCoordinatesFromFile(PATH_TO_FILE);
+		for (int[] rowOfCoordinates : coordinates) {
+			int upperLeftX = rowOfCoordinates[0];
+			int upperLeftY = rowOfCoordinates[1];
+			int widthOfRectangle = rowOfCoordinates[2];
+			int heightOfRectangle = rowOfCoordinates[3];
+			g.drawRect(upperLeftX, upperLeftY, widthOfRectangle, heightOfRectangle);
+		}
 	}
 
 	// Main method
 	public static void main(String[] args) {
-		
 		// Load main window and display rectangles
 		CourseWork mainWindow = new CourseWork();
-	
 	}
-	
 }
