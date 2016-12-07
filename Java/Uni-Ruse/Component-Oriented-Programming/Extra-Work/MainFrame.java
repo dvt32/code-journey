@@ -52,7 +52,7 @@ class LoadDialog extends JDialog {
 		add(facultyNumberLabel);
 		genderLabel = new JLabel("Gender: ");
 		setComponentPosition(genderLabel, dialogLayout, 5, 55, this);
-		this.add(genderLabel);
+		add(genderLabel);
 		gradeOneLabel = new JLabel("Grade 1: ");
 		setComponentPosition(gradeOneLabel, dialogLayout, 5, 83, this);
 		add(gradeOneLabel);
