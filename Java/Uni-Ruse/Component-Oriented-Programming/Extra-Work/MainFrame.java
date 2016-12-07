@@ -112,7 +112,7 @@ class LoadDialog extends JDialog {
 	public static String[] loadFromFile(String inputPath) {
 		/*
 		 * Expected file contents:
-		 * 	Line 1: <Student Name - string, may contain spaces>
+		 *  Line 1: <Student Name - string, may contain spaces>
 		 *  Line 2: <Faculty Number - 6 digit integer>
 		 *  Line 3: <Gender string - "Male" or "Female">
 		 *  Line 4: <Grade 1 - integer in range [2, 6]>
