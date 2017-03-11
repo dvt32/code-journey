@@ -1,0 +1,27 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>DateServlet</servlet-name>
+  	<display-name>DateServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.DateServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>TableGenerator</servlet-name>
+  	<display-name>TableGenerator</display-name>
+  	<description></description>
+  	<servlet-class>servlets.TableGenerator</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DateServlet</servlet-name>
+  	<url-pattern>/DateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TableGenerator</servlet-name>
+  	<url-pattern>/TableGenerator</url-pattern>
+  </servlet-mapping>
+</web-app>
