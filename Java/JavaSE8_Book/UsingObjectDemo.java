@@ -5,7 +5,7 @@ class MyClass {
 	char symbol;
 }
 
-public class UsingObjectDemo { // labeled as "UsingObjectApplication" in the book
+public class UsingObjectDemo {
 	public static void main(String[] args) {
 		MyClass object = new MyClass();
 		object.number = 100;
