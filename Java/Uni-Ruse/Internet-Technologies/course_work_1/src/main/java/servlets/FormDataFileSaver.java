@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FormDataFileSaver extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private final String OUTPUT_FILE_PATH = "F:\\output.txt";
+	private final String OUTPUT_FILE_PATH = "output.txt";
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Read data from submitted form
@@ -25,7 +25,7 @@ public class FormDataFileSaver extends HttpServlet {
 		// Save data to a file
 		try {
 		    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(OUTPUT_FILE_PATH, true)));
-		    out.println(firstName + " " + lastName + ", " + age + " years old, EGN: " + egnNumber + "\n");
+		    out.println(firstName + " " + lastName + ", " + age + " years old, EGN: " + egnNumber);
 		    out.close();
 		    
 		    PrintWriter output = response.getWriter();
