@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FormDataFileTableGenerator extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private final String INPUT_FILE_PATH = "F:\\output.txt";
+	private final String INPUT_FILE_PATH = "output.txt";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
