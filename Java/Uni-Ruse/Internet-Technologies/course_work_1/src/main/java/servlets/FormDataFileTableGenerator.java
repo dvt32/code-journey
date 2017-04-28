@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,13 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 
 public class FormDataFileTableGenerator extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private final String INPUT_FILE_PATH = "output.txt";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		
-		PrintWriter output = response.getWriter();
+		ServletContext context = request.getServletContext();
+		final String INPUT_FILE_PATH =  context.getRealPath("/") + "output.txt";
 		
 		StringBuilder pageHTML = new StringBuilder(
 			"<!DOCTYPE html>" +
@@ -42,6 +42,7 @@ public class FormDataFileTableGenerator extends HttpServlet {
 			"</body>" +
 			"</html>");
 		
+		PrintWriter output = response.getWriter();
 		output.print(pageHTML);
 	}
 
