@@ -26,7 +26,8 @@ public class FormDataFileSaver extends HttpServlet {
 		
 		// Save data to a file
 		try {
-		    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(OUTPUT_FILE_PATH, true)));
+		    boolean appendToFile = true;
+		    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(OUTPUT_FILE_PATH, appendToFile)));
 		    out.println(firstName + " " + lastName + ", " + age + " years old, EGN: " + egnNumber);
 		    out.close();
 		    
