@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html" 
+             xmlns:f="http://java.sun.com/jsf/core" 
+             xmlns:ui="http://java.sun.com/jsf/facelets" >     
+    
+	<h:head> 
+		<title>Add Participant - IT Course Work 2 - dvt32, 146518, Computer Science</title>
+	</h:head>
+
+    <h:body>
+    
+    	<h:panelGroup rendered="#{!loginBean.loggedIn}">
+    		Access denied. Please
+    		<h:outputLink value="login.jsf">
+					<h:outputText value="login" />
+				</h:outputLink>
+			first!
+    	</h:panelGroup>
+    
+    	<h:panelGroup rendered="#{loginBean.loggedIn}">
+	    	<!-- MAIN MENU BEGIN -->
+	    	<h:outputText value="[" />
+		    	<h:outputLink value="index.jsf">
+					<h:outputText value="Index" />
+				</h:outputLink>
+				<h:outputText value=" | " />
+				<h:outputLink value="ranking.jsf">
+					<h:outputText value="Ranking" />
+				</h:outputLink>
+				<h:outputText value=" | " rendered="#{loginBean.loggedIn}" />
+				<h:outputLink value="event_add.jsf" rendered="#{loginBean.loggedIn}">
+					<h:outputText value="Add Event" />
+				</h:outputLink>
+				<h:outputText value=" | " rendered="#{loginBean.loggedIn}"/>
+				<h:outputLink value="participant_add.jsf" rendered="#{loginBean.loggedIn}">
+					<h:outputText value="Add Participant" />
+				</h:outputLink>
+				<h:outputText value=" | " />
+				<h:outputLink value="login.jsf" rendered="#{!loginBean.loggedIn}">
+					<h:outputText value="Login" rendered="#{!loginBean.loggedIn}" />
+				</h:outputLink>
+				<h:outputLink value="logout.jsf" rendered="#{loginBean.loggedIn}">
+					<h:outputText value="Logout" rendered="#{loginBean.loggedIn}" />
+				</h:outputLink>
+			<h:outputText value="]" /> <br /> <br />
+			<!-- MAIN MENU END -->
+	        
+			<h:outputText value="Add New Participant" /> <br />
+			<h:outputText value="---" /> <br />
+			
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputText value="Participant Name" />
+					<h:inputText value="#{participantBean.name}" />
+			
+					<h:outputText value="Competition Name" />
+					<h:inputText value="#{participantBean.competitionName}" />
+					
+					<h:outputText value="Rank Number" />
+					<h:inputText value="#{participantBean.rankNumber}" />
+					
+					<h:commandButton action="#{participantBean.validateAndAdd}" value="Submit" />
+				</h:panelGrid>
+			</h:form>
+		</h:panelGroup>
+				
+    </h:body>
+    
+</html>

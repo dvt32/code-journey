@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+    
+    <!-- Event rules -->
+    <navigation-rule>
+    	<from-view-id>event_add.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>event_add</from-outcome>
+    		<to-view-id>event_added.jsf</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+    	<from-view-id>event_add.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>event_error</from-outcome>
+    		<to-view-id>event_error.jsf</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+    <!-- Participant rules -->
+    <navigation-rule>
+    	<from-view-id>participant_add.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>participant_add</from-outcome>
+    		<to-view-id>participant_added.jsf</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+    	<from-view-id>participant_add.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>participant_error</from-outcome>
+    		<to-view-id>participant_error.jsf</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+    <!-- Login/logout rules -->
+    <navigation-rule>
+    	<from-view-id>login.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>login_success</from-outcome>
+    		<to-view-id>login_success.jsf</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+    	<from-view-id>login.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>login_error</from-outcome>
+    		<to-view-id>login_error.jsf</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+    	<from-view-id>logout.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>logout_success</from-outcome>
+    		<to-view-id>logout_success.jsf</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+    	<from-view-id>logout.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>return_home</from-outcome>
+    		<to-view-id>index.jsf</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+</faces-config>
