@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html" 
+             xmlns:f="http://java.sun.com/jsf/core" 
+             xmlns:ui="http://java.sun.com/jsf/facelets" >     
+    
+	<h:head> 
+		<title>Index - IT Course Work 2 - dvt32, 146518, Computer Science</title>
+	</h:head>
+
+    <h:body>
+    
+    	<!-- MAIN MENU BEGIN -->
+    	<h:outputText value="[" />
+	    	<h:outputLink value="index.jsf">
+				<h:outputText value="Index" />
+			</h:outputLink>
+			<h:outputText value=" | " />
+			<h:outputLink value="ranking.jsf">
+				<h:outputText value="Ranking" />
+			</h:outputLink>
+			<h:outputText value=" | " rendered="#{loginBean.loggedIn}" />
+			<h:outputLink value="event_add.jsf" rendered="#{loginBean.loggedIn}">
+				<h:outputText value="Add Event" />
+			</h:outputLink>
+			<h:outputText value=" | " rendered="#{loginBean.loggedIn}"/>
+			<h:outputLink value="participant_add.jsf" rendered="#{loginBean.loggedIn}">
+				<h:outputText value="Add Participant" />
+			</h:outputLink>
+			<h:outputText value=" | " />
+			<h:outputLink value="login.jsf" rendered="#{!loginBean.loggedIn}">
+				<h:outputText value="Login" rendered="#{!loginBean.loggedIn}" />
+			</h:outputLink>
+			<h:outputLink value="logout.jsf" rendered="#{loginBean.loggedIn}">
+				<h:outputText value="Logout" rendered="#{loginBean.loggedIn}" />
+			</h:outputLink>
+		<h:outputText value="]" /> <br /> <br />
+		<!-- MAIN MENU END -->
+        
+		<h:outputText value="List of Upcoming Events" /> <br />
+		<h:outputText value="---" /> <br />
+		
+		<table border="1">
+			<thead>
+				<tr>
+					<td>Date</td>
+					<td>Time</td>
+					<td>Address</td>
+					<td>Description</td>
+				</tr>
+			</thead>
+			<tbody>
+				<ui:repeat var="e" value="#{event.allEvents}">
+					<tr>
+						<td>#{e.date}</td>
+						<td>#{e.time}</td>
+						<td>#{e.address}</td>
+						<td>#{e.description}</td>
+				 	</tr>
+			 	</ui:repeat>
+		 	</tbody>
+	 	</table>
+	 					
+    </h:body>
+    
+</html>
