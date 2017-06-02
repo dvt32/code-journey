@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html" 
+             xmlns:f="http://java.sun.com/jsf/core" 
+             xmlns:ui="http://java.sun.com/jsf/facelets" >     
+    
+	<h:head> 
+		<title>Book List - IT Exam 01.06.2017 - dvt32, 146518, Computer Science</title>
+	</h:head>
+
+    <h:body>
+    
+    	<!-- MAIN MENU BEGIN -->
+    	<h:outputText value="[" />
+	    	<h:outputLink value="index.jsf">
+				<h:outputText value="Index" />
+			</h:outputLink>
+			<h:outputText value=" | " />
+			<h:outputLink value="book_list.jsf">
+				<h:outputText value="Books by Prosveta" />
+			</h:outputLink>
+		<h:outputText value="]" /> <br /> <br />
+		<!-- MAIN MENU END -->
+        
+		<h:outputText value="Books by Prosveta" /> <br />
+		<h:outputText value="---" /> <br />
+		
+		<table border="1">
+			<thead>
+				<tr>
+					<td>Book Title</td>
+					<td>Publisher</td>
+					<td>Number of Pages</td>
+					<td>Cover Type</td>
+				</tr>
+			</thead>
+			<tbody>
+				<ui:repeat var="b" value="#{book.prosvetaBooks}">
+					<tr>
+						<td>#{b.title}</td>
+						<td>#{b.publisher}</td>
+						<td>#{b.numberOfPages}</td>
+						<td>#{b.coverType}</td>
+				 	</tr>
+			 	</ui:repeat>
+		 	</tbody>
+	 	</table>
+				
+    </h:body>
+    
+</html>
