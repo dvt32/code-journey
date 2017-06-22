@@ -1,0 +1,57 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>AddUserToDatabase</servlet-name>
+  	<display-name>AddUserToDatabase</display-name>
+  	<description></description>
+  	<servlet-class>servlets.AddUserToDatabase</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteUserFromDatabase</servlet-name>
+  	<display-name>DeleteUserFromDatabase</display-name>
+  	<description></description>
+  	<servlet-class>servlets.DeleteUserFromDatabase</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EditUserInfo</servlet-name>
+  	<display-name>EditUserInfo</display-name>
+  	<description></description>
+  	<servlet-class>servlets.EditUserInfo</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SearchForUser</servlet-name>
+  	<display-name>SearchForUser</display-name>
+  	<description></description>
+  	<servlet-class>servlets.SearchForUser</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SortData</servlet-name>
+  	<display-name>SortData</display-name>
+  	<description></description>
+  	<servlet-class>servlets.SortData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddUserToDatabase</servlet-name>
+  	<url-pattern>/AddUserToDatabase</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteUserFromDatabase</servlet-name>
+  	<url-pattern>/DeleteUserFromDatabase</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EditUserInfo</servlet-name>
+  	<url-pattern>/EditUserInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SearchForUser</servlet-name>
+  	<url-pattern>/SearchForUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SortData</servlet-name>
+  	<url-pattern>/SortData</url-pattern>
+  </servlet-mapping>
+</web-app>
