@@ -20,7 +20,7 @@ public class CenterOfGravity {
 	 * @param arr The input integer array
 	 * @return The index of the "center of gravity" element in the array
 	 */
-	public static int getCenterOfGravityIndex(int[] arr) {
+	public int getCenterOfGravityIndex(int[] arr) {
 		int minDifferenceBetweenSums = Integer.MAX_VALUE;
 		int centerOfGravityIndex = -1;
 		

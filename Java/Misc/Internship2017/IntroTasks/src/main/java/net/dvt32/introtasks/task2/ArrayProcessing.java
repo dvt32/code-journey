@@ -19,7 +19,7 @@ public class ArrayProcessing {
 	 * @param array An integer array, in which to find the smallest element's index
 	 * @return The index of the smallest element in the array. Returns -1 if the array is empty.
 	 */
-	public static int getMinElementIndex(int[] array) {
+	public int getMinElementIndex(int[] array) {
 		if (array.length == 0) {
 			return -1;
 		}
@@ -42,7 +42,7 @@ public class ArrayProcessing {
 	 * @param array The input integer array, whose elements' values will be added to the sum.
 	 * @return The sum of all elements in the array. If the array is empty, the sum will be 0.
 	 */
-	public static int sum(int[] array) {
+	public int sum(int[] array) {
 		int sum = 0;
 		
 		for (int elementValue : array) {
@@ -60,7 +60,7 @@ public class ArrayProcessing {
 	 * @param array The input integer array
 	 * @return A string representation of the array  
 	 */
-	public static String convertToString(int [] array) {
+	public String convertToString(int [] array) {
 		return Arrays.toString(array);
 	}
 }

@@ -14,7 +14,7 @@ public class GreatestCommonDivisor {
 	 * @param b the second integer
 	 * @return The greatest common divisor of the two integers.
 	 */
-	public static int getGreatestCommonDivisor(int a, int b) {
+	public int getGreatestCommonDivisor(int a, int b) {
 		while (b != 0) {
 			int temp = a;
 			a = b;
@@ -31,7 +31,7 @@ public class GreatestCommonDivisor {
 	 * @param b The second integer
 	 * @return The least common multiple of the two integers.
 	 */
-	public static int getLeastCommonMultiple(int a, int b) {
+	public int getLeastCommonMultiple(int a, int b) {
 		int leastCommonMultiple = (a * b) / getGreatestCommonDivisor(a, b);
 		return leastCommonMultiple;
 	}

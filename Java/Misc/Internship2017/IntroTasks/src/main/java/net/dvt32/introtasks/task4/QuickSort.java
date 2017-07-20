@@ -46,7 +46,7 @@ public class QuickSort {
 	 * @param L First valid index of the array (0)
 	 * @param R	Last valid index of the array (arr.length-1)
 	 */
-	public static void quickSort(int[] arr, int L, int R) {
+	public void quickSort(int[] arr, int L, int R) {
 		int pivotValue = arr[(L+R) / 2];
 		
 		int i = L;
