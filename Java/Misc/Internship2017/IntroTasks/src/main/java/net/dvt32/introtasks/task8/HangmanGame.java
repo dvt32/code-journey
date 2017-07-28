@@ -27,10 +27,10 @@ public class HangmanGame {
 	 * 'numberOfAllowedWrongGuesses' tries, the game is over.
 	 * 
 	 * @param numberOfAllowedWrongGuesses The max number of allowed tries/guesses.
+	 * @return The entire console output as a String
 	 */
-	public static void playHangman(int numberOfAllowedWrongGuesses) {
+	public void playHangman(int numberOfAllowedWrongGuesses, Scanner read) {
 		// Enter a word
-		Scanner read = new Scanner(System.in);
 		System.out.println("Enter word: ");
 		String wordToGuess = read.nextLine().toUpperCase().replaceAll(" ", "");
 		
@@ -71,16 +71,14 @@ public class HangmanGame {
 			else {
 				numberOfWrongGuessesMade++;
 				if (numberOfWrongGuessesMade == numberOfAllowedWrongGuesses) {
-					System.out.println("Sorry! You ran out of lives. The word was: " + wordToGuess);
+					System.out.println("Sorry! You ran out of lives. The word was " + wordToGuess + ".");
 				}
 			}
 		}
 		
 		// Close scanner
 		read.close();
-	}
-	
-	public static void main(String[] args) {
-		playHangman(5);
+
+		return;
 	}
 }
