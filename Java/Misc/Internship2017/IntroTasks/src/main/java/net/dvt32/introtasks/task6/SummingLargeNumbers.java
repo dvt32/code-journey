@@ -33,8 +33,8 @@ public class SummingLargeNumbers {
 	public String getSumOfNumbers(String firstNumber, String secondNumber) {
 		StringBuilder sumOfNumbers = new StringBuilder();
 		
-		firstNumber = firstNumber.replaceFirst("^0+(?!$)", "");
-		secondNumber = secondNumber.replaceFirst("^0+(?!$)", "");
+		firstNumber = getStringWithoutLeadingZeros(firstNumber);
+		secondNumber = getStringWithoutLeadingZeros(secondNumber);
 		
 		int i = firstNumber.length()-1;
 		int j = secondNumber.length()-1;
