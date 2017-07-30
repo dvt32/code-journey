@@ -1,14 +1,14 @@
 package net.dvt32.introtasks.task6;
 
 /**
- * This program calculates the sum of 2 positive decimal numbers, represented as Strings.
+ * This program calculates the sum of 2 non-negative decimal numbers, represented as Strings.
  * It does so by mimicking the way a human being would calculate the sum of the two numbers.
  * 
  * @author Dimitar Trifonov (dvt32)
  */
 public class SummingLargeNumbers {
 	/**
-	 * This method adds 2 positive decimal numbers and returns their sum as a String.
+	 * This method adds 2 non-negative decimal numbers and returns their sum as a String.
 	 * It supports really large numbers as well.
 	 * 
 	 * The logic of the method is pretty straightforward:
@@ -26,9 +26,9 @@ public class SummingLargeNumbers {
 	 * 		 but we're performing the calculations from RIGHT TO LEFT, 
 	 * 		 we need to reverse the final result before returning it.
 	 * 
-	 * @param firstNumber The first positive decimal number, represented as a String
-	 * @param secondNumber The second positive decimal number, represented as a String
-	 * @return The sum of the 2 positive decimal numbers, represented as a String
+	 * @param firstNumber The first non-negative decimal number, represented as a String
+	 * @param secondNumber The second non-negative decimal number, represented as a String
+	 * @return The sum of the 2 non-negative decimal numbers, represented as a String
 	 */
 	public String getSumOfNumbers(String firstNumber, String secondNumber) {
 		StringBuilder sumOfNumbers = new StringBuilder();
