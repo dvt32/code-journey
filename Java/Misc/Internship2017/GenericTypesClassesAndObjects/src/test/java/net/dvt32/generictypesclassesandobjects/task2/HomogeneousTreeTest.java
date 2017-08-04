@@ -125,7 +125,7 @@ public class HomogeneousTreeTest {
 	}
 	
 	@Test
-	public void shouldPrintAllThreeNodeValuesInDFSOrder() {
+	public void shouldPrintAllTreeNodeValuesInDFSOrder() {
 		int[] treeNodeValues = new int[] { 1, 2, 3, 4, 5, 6 };
 		
 		HomogeneousTree<Integer> tree = new HomogeneousTree<Integer>( treeNodeValues[0] );
