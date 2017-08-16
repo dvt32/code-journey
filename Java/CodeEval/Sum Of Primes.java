@@ -1,7 +1,5 @@
 // https://www.codeeval.com/open_challenges/4/
 
-import java.io.*;
-
 public class Main {	
 	public static void main(String[] args) {
 		int sum = 0;
