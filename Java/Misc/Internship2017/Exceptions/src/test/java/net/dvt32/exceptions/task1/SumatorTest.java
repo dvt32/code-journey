@@ -78,4 +78,9 @@ public class SumatorTest {
 	public void shouldThrowNumberFormatException_ThirdTest() {
 		s.checkIfNumberIsValid("1 ");
 	}
+	
+	@Test
+	public void shouldNotThrowAnyException() {
+		s.checkIfNumberIsValid("1");
+	}
 }
