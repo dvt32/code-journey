@@ -118,7 +118,10 @@ public class ClassDataPrinterTest {
 			actualValues.add(fieldValue);
 		}
 		
-		assertTrue( actualValues.containsAll(expectedValues) );
+		assertTrue( 
+			actualValues.containsAll(expectedValues) && 
+			actualValues.size() == expectedValues.size() 
+		);
 	}
 	
 	@Test(expected = NullPointerException.class)
