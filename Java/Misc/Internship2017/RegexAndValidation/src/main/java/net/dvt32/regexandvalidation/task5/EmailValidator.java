@@ -42,8 +42,8 @@ public class EmailValidator {
 	 * @return true if the email is valid, false otherwise
 	 */
 	public static boolean isValidEmail(String email) {
-		Matcher matcher = VALID_EMAIL_REGEX_PATTERN.matcher(email);
-		boolean isValidEmail = matcher.find();
-		return isValidEmail;
+        Matcher matcher = VALID_EMAIL_REGEX_PATTERN.matcher(email);
+        boolean isValidEmail = matcher.find();
+        return isValidEmail;
 	}
 }
