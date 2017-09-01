@@ -22,7 +22,7 @@ public class IbanValidatorTest {
 	
 	@Test
 	public void shouldCensorTwoBulgarianIbanNumbers() {
-		String expectedOutput =
+		String expectedResult =
 			"<bankAccounts>\r\n" + 
 			"<iban>GR16 0110 1050 0000 1054 7023 795</iban>\r\n" + 
 			"<iban>GB35 MIBG 4025 3432 1446 70</iban>\r\n" + 
@@ -34,8 +34,8 @@ public class IbanValidatorTest {
 			"<iban>AZ21 NABZ 0000 0000 1370 1000 1944</iban>\r\n" + 
 			"<iban>****7843</iban>\r\n" + 
 			"</bankAccounts>\r\n";
-		String actualOutput = iv.getStringWithCensoredIbanFirstPart(EXAMPLE_INPUT);
-		assertEquals(expectedOutput, actualOutput);
+		String actualResult = iv.getStringWithCensoredIbanFirstPart(EXAMPLE_INPUT);
+		assertEquals(expectedResult, actualResult);
 	}
 	
 	@Test(expected = NullPointerException.class)
@@ -57,8 +57,10 @@ public class IbanValidatorTest {
 			"<iban>AZ21 NABZ 0000 0000 1370 1000 1944</iban>\r\n" + 
 			"<iban>****7843</iban>\r\n" + 
 			"</bankAccounts>\r\n";
-		String output = iv.getStringWithCensoredIbanFirstPart(input);
-		assertEquals(input, output);
+		
+		String expectedResult = input;
+		String actualResult = iv.getStringWithCensoredIbanFirstPart(input);
+		assertEquals(expectedResult, actualResult);
 	}
 	
 }
