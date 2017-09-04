@@ -4,9 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 
-import net.dvt32.designpatterns.task2.Mail;
-import net.dvt32.designpatterns.task2.MailBuilder;
-
 import org.junit.Test;
 
 public class MailFluentInterfaceTest {
