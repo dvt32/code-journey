@@ -5,14 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class StringBuilderPoolTest {
-	
+
 	/*
 	 * Constructor tests
 	 */
 	@Test
 	public void shouldCreatePoolWithSize10() {
 		StringBuilderPool pool = new StringBuilderPool(10);
-		assertTrue( pool.size() == 10 );
+		assertTrue( pool.getNumberOfAvailableObjects() == 10 );
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -24,16 +24,17 @@ public class StringBuilderPoolTest {
 	 * acquire() tests
 	 */
 	@Test
-	public void poolShouldHaveNoRemainingObjects() {
+	public void poolShouldHaveNoAvailableObjectsLeftAndShouldHaveThreeCurrentlyUsedObjects() {
 		StringBuilderPool pool = new StringBuilderPool(3);
 		
 		StringBuilder a = pool.acquire();
 		StringBuilder b = pool.acquire();
 		StringBuilder c = pool.acquire();
 		
-		int expectedResult = 0;
-		int actualResult = pool.size();
-		assertEquals(expectedResult, actualResult);
+		assertTrue( 
+			pool.getNumberOfAvailableObjects() == 0 &&
+			pool.getNumberOfCurrentlyUsedObjects() == 3 
+		);
 	}
 	
 	@Test(expected = IllegalStateException.class)
@@ -63,6 +64,7 @@ public class StringBuilderPoolTest {
 	@Test(expected = IllegalStateException.class)
 	public void releaseMethodShouldThrowIllegalStateException() {
 		StringBuilderPool pool = new StringBuilderPool(1);
+		StringBuilder a = pool.acquire();
 		pool.release(new StringBuilder());
 	}
 	
