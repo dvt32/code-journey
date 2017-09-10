@@ -77,7 +77,7 @@ public class StopCounterThreadTest {
 		sct.getCounterThread().start();
 		sct.getCounterThread().join();
 		
-    	String userInput = "hello" + LINE_SEPARATOR;
+    		String userInput = "hello" + LINE_SEPARATOR;
 		System.setIn( new ByteArrayInputStream(userInput.getBytes()) );
 		sct.readLineAndPrintElapsedSeconds( new Scanner(System.in) );
 		System.setIn(System.in);
