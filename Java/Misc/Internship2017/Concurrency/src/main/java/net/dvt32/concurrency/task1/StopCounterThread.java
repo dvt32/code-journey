@@ -1,6 +1,9 @@
 package net.dvt32.concurrency.task1;
 
 import java.util.Scanner;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * This program starts a thread, which counts 
@@ -10,98 +13,120 @@ import java.util.Scanner;
  * 
  * Finally, it prints the number of elapsed seconds.
  * 
+ * Internally, a ScheduledExecutorService is used, 
+ * in order to execute the thread's run() method every second.
+ * 
  * @author Dimitar Trifonov (dvt32)
  */
 public class StopCounterThread
 	implements Runnable
 {
 	private Thread counterThread;
-	private int targetSeconds;
+	private ScheduledExecutorService executor;
 	private int elapsedSeconds;
+	private int targetSeconds;
 	
 	/**
-	 * Constructor, which initially sets the number of elapsed seconds to 0.
-	 * It also sets the thread's target number of seconds and initializes the thread itself.
+	 * This constructor sets the target number of seconds to reach,
+	 * before the thread will stop counting and finish its execution.
 	 * 
-	 * @param targetSeconds The number of elapsed seconds before the thread dies.
+	 * It also initializes the internal thread and executor service,
+	 * along with the number of elapsed seconds (initially 0).
+	 * 
+	 * The target seconds number MUST be positive, 
+	 * otherwise an IllegalArgumentException is thrown.
+	 * 
+	 * @param targetSeconds The target seconds number
 	 */
 	public StopCounterThread(int targetSeconds) {
-		counterThread = new Thread(this);
+		if (targetSeconds <= 0) {
+			throw new IllegalArgumentException("The target seconds number MUST be positive!");
+		}
 		this.targetSeconds = targetSeconds;
+		counterThread = new Thread(this);
+		executor = Executors.newScheduledThreadPool(1);
 		elapsedSeconds = 0;
 	}
 	
-	/*
-	 * Getters
+	/**
+	 * This method starts the thread and calls its run() method every second.
+	 * 
+	 * Because this class implements the Runnable interface,
+	 * an object from it can be passed as an argument 
+	 * to the ScheduledExecutorService scheduleAtFixedRate() method.
 	 */
-	public Thread getCounterThread() {
-		return counterThread;
+	public void start() {
+		Runnable threadToBeExecuted = this;
+		long initialDelayInSeconds = 0;
+		long secondsBetweenRunMethodCall = 1;
+		executor.scheduleAtFixedRate(
+			threadToBeExecuted, 
+			initialDelayInSeconds, 
+			secondsBetweenRunMethodCall, 
+			TimeUnit.SECONDS
+		);
 	}
 	
-	public int getTargetSeconds() {
-		return targetSeconds;
+	/**
+	 * This method interrupts the thread and 
+	 * shuts down the executor service (if they weren't already).
+	 * 
+	 * The method is called either when the thread
+	 * completes its task and counts to the specified
+	 * target number of seconds OR when the user enters input.
+	 */
+	public void stop() {
+		if ( !counterThread.isInterrupted() && 
+			 !executor.isShutdown() ) 
+		{
+			counterThread.interrupt();
+			executor.shutdown();
+		}
 	}
 	
+	/**
+	 * This method returns the total number of elapsed seconds.
+	 * 
+	 * @return the number of elapsed seconds
+	 */
 	public int getElapsedSeconds() {
 		return elapsedSeconds;
 	}
-	
+
 	/**
 	 * This method dictates what happens when the thread is executing.
 	 * 
-	 * First the start time is calculated. 
+	 * Since this method is called every second, 
+	 * the only thing needed is for the elapsed seconds counter
+	 * to be incremented.
 	 * 
-	 * Then the thread waits around 1 second (around 1000 milliseconds, but 
-	 * Thread.sleep() does not guarantee it) and the time difference in seconds is equal 
-	 * to the number of elapsed seconds.
-	 * 
-	 * This is done continually, 
-	 * until the target number of seconds has been reached
-	 * or until the user interrupts the thread.
-	 * 
-	 * In case the thread is interrupted by user input,
-	 * the thread is re-interrupted (to keep state)
-	 * and its execution stops.
+	 * Lastly, if the thread has reached the target number of seconds,
+	 * it will be stopped, along with the executor service.
 	 */
 	public void run() {
-		long startTimeInMilliseconds = System.currentTimeMillis();
-		
-		while (elapsedSeconds < targetSeconds) {
-			try {
-				Thread.sleep(1000);
-				long currentTimeInMilliseconds = System.currentTimeMillis();
-				long timeDifferenceInMilliseconds = (currentTimeInMilliseconds - startTimeInMilliseconds);
-				elapsedSeconds = (int) (timeDifferenceInMilliseconds / 1000);
-			} catch (InterruptedException e) {
-				Thread.currentThread().interrupt();
-				return;
-			}
+		elapsedSeconds++;
+		if (elapsedSeconds == targetSeconds) {
+			stop();
 		}
 	}
 	
 	/**
-	 * This method reads a line from a Scanner with some input data,
-	 * tries to interrupt the thread (if it's alive)
-	 * and prints the total number of elapsed seconds.
+	 * This is the program's main method,
+	 * in which the thread is started and 
+	 * then user input is expected.
 	 * 
-	 * @param read The Scanner object, containing the user input information
+	 * Once the user enters something,
+	 * the thread is stopped (in case it wasn't already).
 	 */
-	public void readLineAndPrintElapsedSeconds(Scanner read) {
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		StopCounterThread counter = new StopCounterThread( 5 );
+		
+		counter.start();
 		read.nextLine();
+		counter.stop();
 		read.close();
 		
-		interruptCounterThreadIfAlive();
-		
-		System.out.println( elapsedSeconds );
-	}
-	
-	/**
-	 * This method interrupts the counter thread,
-	 * in case it was still alive when the method was called.
-	 */
-	public void interruptCounterThreadIfAlive() {
-		if (counterThread.isAlive()) {
-			counterThread.interrupt();
-		}
+		System.out.println( counter.getElapsedSeconds() );
 	}
 }
