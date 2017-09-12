@@ -17,7 +17,6 @@ package net.dvt32.concurrency.task2;
 public class CounterThread
 	implements Runnable
 {
-	public volatile boolean isRunning = true;
 	private Thread counterThread;
 	private Thread threadToStop;
 	private int startValue;
