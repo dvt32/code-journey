@@ -17,6 +17,8 @@ public class SynchronizedCounterThread
 	private Thread counterThread;
 	private int startValue;
 	private int endValue;
+
+	private static final Object lock = new Object();
 	
 	/**
 	 * This constructor initializes the internal counter thread and gives it a name.
@@ -51,14 +53,29 @@ public class SynchronizedCounterThread
 	/**
 	 * This method shows what's happening when the counter thread is running.
 	 * 
-	 * It is synchronized, which allows both threads to count at the same rate.
+	 * A static final object is used as a monitor lock to manage synchronization.
+	 * 
+	 * notifyAll() wakes up all threads that are waiting on this object's monitor. 
+	 * A thread waits on an object's monitor by calling one of the wait methods.
+	 * 
+	 * wait() causes current thread to wait 
+	 * until another thread invokes the notify() method or 
+	 * the notifyAll() method for this object.
 	 */
-	public synchronized void run() {
+	public void run() {
 		int currentValue = startValue;
 		
 		while (currentValue <= endValue) {
-			System.out.println( counterThread.getName() + ": " + currentValue);
-			currentValue++;
+			synchronized (lock) {
+				System.out.println( counterThread.getName() + ": " + currentValue);
+				currentValue++;
+				lock.notifyAll();
+                try {
+					lock.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 	
