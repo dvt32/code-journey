@@ -70,10 +70,9 @@ public class SynchronizedCounterThread
 				System.out.println( counterThread.getName() + ": " + currentValue);
 				currentValue++;
 				lock.notifyAll();
-                		try {
+                try {
 					lock.wait();
-				} 
-				catch (InterruptedException e) {
+				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
