@@ -12,7 +12,7 @@ using System;
 
 namespace Exercise1
 {
-    class OddAndEvenNumberCheck
+    class Solution
     {
         static void Main(string[] args)
         {
