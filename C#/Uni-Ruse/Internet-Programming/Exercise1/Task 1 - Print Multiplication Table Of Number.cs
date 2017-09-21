@@ -12,7 +12,7 @@ using System;
 
 namespace Exercise1
 {
-    class PrintMultiplicationTableOfNumber
+    class Solution
     {
         static void Main(string[] args)
         {
