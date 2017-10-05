@@ -40,7 +40,7 @@ namespace Exercise3
                 string symbol = dataOnLine[2];
 
                 Console.CursorLeft = Int32.Parse(x);
-                Console.CursorLeft = Int32.Parse(y);
+                Console.CursorTop = Int32.Parse(y);
                 Console.WriteLine(symbol);
 
                 i++;
