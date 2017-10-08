@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- <bean id="triangle" class="net.dvt32.javabrains.Triangle">
+		<property name="pointA" ref="pointA" />
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
+	</bean> -->
+	
+	<!-- POINT BEANS -->
+	<bean id="pointA" class="net.dvt32.javabrains.Point">
+		<qualifier value="circleRelated" />
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	
+	<bean id="pointB" class="net.dvt32.javabrains.Point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+	
+	<bean id="center" class="net.dvt32.javabrains.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+	
+	<bean id="circle" class="net.dvt32.javabrains.Circle">
+	</bean>
+	
+	<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" /> -->
+	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" /> -->
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>mymessages</value>
+			</list>
+		</property>
+	</bean>
+	
+	<context:annotation-config/>
+	
+	<context:component-scan base-package="net.dvt32.javabrains" />
+</beans>
