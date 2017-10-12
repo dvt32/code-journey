@@ -12,6 +12,8 @@
 
 */
 
+// Optimization ideas: write fields to BinaryWriter individually, so that when they are read, they won't need to be parsed
+
 using System;
 using System.IO;
 
