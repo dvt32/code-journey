@@ -6,6 +6,8 @@
 
 */
 
+// optimization ideas: use an infinite loop, catch the EndOfStreamException and read the data via ReadString() and ReadInt32()
+
 using System;
 using System.IO;
 
