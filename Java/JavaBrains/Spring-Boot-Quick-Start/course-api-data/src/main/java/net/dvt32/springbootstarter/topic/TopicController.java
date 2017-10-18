@@ -38,7 +38,7 @@ public class TopicController {
 	}
 	
 	@DeleteMapping("/topics/{id}")
-	public void deleteopic(@PathVariable String id) {
+	public void deleteTopic(@PathVariable String id) {
 		topicService.deleteTopic(id);
 	}
 }
