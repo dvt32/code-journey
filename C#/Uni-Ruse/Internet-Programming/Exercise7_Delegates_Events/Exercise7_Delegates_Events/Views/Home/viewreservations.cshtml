@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+@{
+    Exercise7_Delegates_Events.Models.ReservationDAO dao = new Exercise7_Delegates_Events.Models.ReservationDAO();
+    List<Exercise7_Delegates_Events.Models.Reservation> reservations = dao.GetReservationsFromFile();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>viewreservations</title>
+</head>
+<body>
+    <div> 
+        @foreach (Exercise7_Delegates_Events.Models.Reservation reservation in reservations)
+        {
+            String roomType = reservation.RoomType;
+            String startDate = reservation.StartDate;
+            String endDate = reservation.EndDate;
+            String fullName = reservation.FullName;
+            String paymentMethod = reservation.PaymentMethod;
+            String message = reservation.Message;
+            <text>
+                Room Type: @roomType <br />
+                Start Date: @startDate <br />
+                End Date: @endDate <br />
+                Full name: @fullName <br />
+                Payment method: @paymentMethod <br />
+                Message: @message <br />
+                <br />
+            </text>
+        }
+
+        @{
+            <text>
+                <a href="/">Go back home...</a>
+            </text>
+        }
+    </div>
+</body>
+</html>

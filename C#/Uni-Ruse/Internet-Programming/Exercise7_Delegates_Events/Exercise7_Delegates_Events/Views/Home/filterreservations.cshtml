@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>filterreservations</title>
+</head>
+<body>
+    <div> 
+        <!-- MENU BEGIN -->
+        [<a href="/">Home</a> | <a href="/Home/ViewReservations">ViewReservations</a> | <a href="/Home/FilterReservations">FilterReservations</a>] <br />
+        <!-- MENU END -->
+
+        <br />
+
+        Filter Reservations <br /> <br />
+
+        --- <br /> <br />
+
+        <!-- FORM -->
+        <form method="post" action="~/Home/ViewFilteredReservations">
+
+            Filter Type: <br />
+            <input type="radio" name="filterMethodName" value="HasHotelMessage" checked>HasHotelMessage<br />
+            <input type="radio" name="filterMethodName" value="IsOnePersonReservation">IsOnePersonReservation<br />
+            <input type="radio" name="filterMethodName" value="IsTwoPeopleReservation">IsTwoPeopleReservation<br />
+            <input type="radio" name="filterMethodName" value="IsThreePeopleReservation">IsThreePeopleReservation<br />
+
+            <input type="submit" value="Send" />
+
+        </form> 
+    </div>
+</body>
+</html>
