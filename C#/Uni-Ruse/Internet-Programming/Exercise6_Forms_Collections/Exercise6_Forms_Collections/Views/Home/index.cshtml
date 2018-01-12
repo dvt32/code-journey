@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+</head>
+<body>
+    <div> 
+        <!-- MENU BEGIN -->
+        [<a href="/">Home</a> | <a href="/Home/ViewReservations">ViewReservations</a>] <br />
+        <!-- MENU END -->
+
+        <br />
+
+        Add Reservation <br /> <br />
+
+        --- <br /> <br />
+
+        <!-- FORM -->
+        <form method="post" action="~/Home/AcceptReservation">
+
+            Room Type: <br />
+            <input type="radio" name="roomType" value="1 person" checked>1 person<br />
+            <input type="radio" name="roomType" value="2 people">2 people<br />
+            <input type="radio" name="roomType" value="3 people">3 people<br />
+            Reservation Start Date: <input type="text" name="startDate" /> <br />
+            Reservation End Date: <input type="text" name="endDate" /> <br />
+            Full name: <input type="text" name="fullName" value="John Doe"> <br />
+            Payment method: <br />
+            <input type="radio" name="paymentMethod" value="now" checked>now<br />
+            <input type="radio" name="paymentMethod" value="later">later<br />
+            Message: <br />
+            <textarea rows="5" cols="50" name="message">
+            Enter your message...
+            </textarea> <br />
+
+            <input type="submit" value="Send" />
+
+        </form>
+
+    </div>
+</body>
+</html>
