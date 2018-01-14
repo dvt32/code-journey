@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>filterreservations</title>
+</head>
+<body>
+    <div> 
+        <!-- MENU BEGIN -->
+        [<a href="/">Home</a> | <a href="/Home/ViewReservations">ViewReservations</a> | <a href="/Home/FilterReservations">FilterReservations</a>] <br />
+        <!-- MENU END -->
+
+        <br />
+
+        Filter Reservations <br /> <br />
+
+        --- <br /> <br />
+
+        <!-- FORM -->
+        <form method="post" action="~/Home/ViewFilteredReservations">
+            Order type: <br />
+            <select name="orderType">
+                <option value="ByRoomTypeAsc">ByRoomTypeAsc</option>
+                <option value="ByRoomTypeDesc">ByRoomTypeDesc</option>
+                <option value="ByFullNameAsc">ByFullNameAsc</option>
+                <option value="ByFullNameDesc">ByFullNameDesc</option>
+            </select> <br />
+            Filter Type: <br />
+            <input type="radio" name="lambdaFilterName" value="HasHotelMessage" checked>HasHotelMessage<br />
+            <input type="radio" name="lambdaFilterName" value="IsOnePersonReservation">IsOnePersonReservation<br />
+            <input type="radio" name="lambdaFilterName" value="IsTwoPeopleReservation">IsTwoPeopleReservation<br />
+            <input type="radio" name="lambdaFilterName" value="IsThreePeopleReservation">IsThreePeopleReservation<br />
+            <input type="submit" value="Send" />
+        </form> 
+    </div>
+</body>
+</html>
