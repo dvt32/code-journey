@@ -1,0 +1,74 @@
+// POST 1
+
+{ 
+	"Id": 1,
+	"Date": "11-11-2018",
+	"Client": "John Doe",
+	"ModifiedBy": "Admin",
+	"TotalSum": 4.00,
+	"Products" : 
+	[
+		{
+			"Id": 1,
+			"Name": "Order1",
+			"NumberOfOrders": 1337,
+			"SinglePrice": 13.37
+		},
+		{
+			"Id": 2,
+			"Name": "Order2",
+			"NumberOfOrders": 1338,
+			"SinglePrice": 13.38
+		}
+	] 
+}
+
+// POST 2
+
+{ 
+	"Id": 2,
+	"Date": "12-12-2018",
+	"Client": "Jane Done",
+	"ModifiedBy": "Tester",
+	"TotalSum": 5.20,
+	"Products" : 
+	[
+		{
+			"Id": 3,
+			"Name": "Order3",
+			"NumberOfOrders": 1337,
+			"SinglePrice": 13.37
+		},
+		{
+			"Id": 4,
+			"Name": "Order4",
+			"NumberOfOrders": 1338,
+			"SinglePrice": 13.38
+		}
+	] 
+}
+
+// POST 3
+
+{ 
+	"Id": 3,
+	"Date": "12-12-2018",
+	"Client": "Barbra Streisand",
+	"ModifiedBy": "Administrator",
+	"TotalSum": 6.66,
+	"Products" : 
+	[
+		{
+			"Id": 5,
+			"Name": "Order5",
+			"NumberOfOrders": 1337,
+			"SinglePrice": 13.37
+		},
+		{
+			"Id": 6,
+			"Name": "Order6",
+			"NumberOfOrders": 1338,
+			"SinglePrice": 13.38
+		}
+	] 
+}
