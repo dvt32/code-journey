@@ -1,0 +1,32 @@
+// POST 1
+
+{ 
+	"Id": 1,
+	"Date": "11-11-2018",
+	"Client": "John Doe",
+	"ModifiedBy": "Admin",
+	"TotalSum": 4.00,
+	"Products" : null
+}
+
+// POST 2
+
+{ 
+	"Id": 2,
+	"Date": "12-12-2018",
+	"Client": "Jane Done",
+	"ModifiedBy": "Tester",
+	"TotalSum": 5.20,
+	"Products" : null
+}
+
+// POST 3
+
+{ 
+	"Id": 3,
+	"Date": "12-12-2018",
+	"Client": "Barbra Streisand",
+	"ModifiedBy": "Administrator",
+	"TotalSum": 6.66,
+	"Products" : null
+}
