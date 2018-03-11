@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: springboot-in-10-steps
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: dtrif
+Implementation-Vendor-Id: com.in28minutes.springboot.basics
+Build-Jdk: 1.8.0_161
+Implementation-URL: http://projects.spring.io/spring-boot/springboot-i
+ n-10-steps/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
