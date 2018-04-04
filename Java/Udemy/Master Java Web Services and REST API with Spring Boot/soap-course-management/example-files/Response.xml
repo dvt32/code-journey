@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GetCourseDetailsResponse 
+	xmlns="http://in28minutes.com/courses"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://in28minutes.com/courses course-details.xsd"
+>
+	<CourseDetails>
+		<id>123</id>
+		<name>Spring in28minutes</name>
+		<description>You would learn the basics of the Spring Framework.</description>
+	</CourseDetails>
+</GetCourseDetailsResponse>
