@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: jpa-in-10-steps
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: dtrif
+Implementation-Vendor-Id: net.dvt32.learning.jpa
+Build-Jdk: 1.8.0_161
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/jpa-in-10-steps
+Created-By: Maven Integration for Eclipse
+
