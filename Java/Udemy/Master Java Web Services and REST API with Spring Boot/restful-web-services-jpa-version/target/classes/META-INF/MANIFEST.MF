@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: restful-web-services-jpa-version
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: dtrif
+Implementation-Vendor-Id: com.in28minutes.rest.webservices
+Build-Jdk: 1.8.0_171
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/restful-web-services-jpa-version
+Created-By: Maven Integration for Eclipse
+
