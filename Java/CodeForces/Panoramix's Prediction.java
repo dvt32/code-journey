@@ -1,4 +1,3 @@
-
 // http://codeforces.com/problemset/problem/732/A
 
 import java.util.Scanner;
