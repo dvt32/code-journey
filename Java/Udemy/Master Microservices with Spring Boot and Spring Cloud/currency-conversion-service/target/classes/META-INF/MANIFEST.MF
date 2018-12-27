@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: currency-conversion-service
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: dtrif
+Implementation-Vendor-Id: net.dvt32.microservices
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/currency-conversion-service
+Created-By: Maven Integration for Eclipse
+
