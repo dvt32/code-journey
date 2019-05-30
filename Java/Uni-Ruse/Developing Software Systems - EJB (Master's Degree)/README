@@ -1,0 +1,2 @@
+- You need a WildFly 10 server running
+- You need an Oracle db running (set connection info in the standalone.xml & standalone-full.xml WildFly config files)
