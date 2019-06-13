@@ -1,0 +1,9 @@
+User name: <input type="text" [(ngModel)]="userName">
+<button (click)="search()">Search</button>
+
+<div *ngIf="response">
+  <p>Login name: {{ response.login }}</p>
+  <p>Number of repos: {{ response.public_repos }}</p>
+  <p>Number of gists: {{ response.public_gists }}</p>
+  <p>Number of followers: {{ response.followers }}</p>
+</div>
