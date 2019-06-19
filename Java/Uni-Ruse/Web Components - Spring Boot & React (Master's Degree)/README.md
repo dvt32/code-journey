@@ -1,5 +1,14 @@
-mvn clean install -DskipTests
+9. Да се разработи страница, която показва статистика за форума. Страницата трябва да съдържа:
 
-npm install react-export-excel --save
+- топ 3 теми с най-много отговори;
+- топ 3 теми, които най-много са преглеждани;
+- бройка на потребителите в системата;
+- списък с модераторите в системата;
+- списък с администраторите в системата
 
-npm install react-datepicker --save
+Трябва да може да се филтрира по времеви интервал и да се експортира като Excel.
+
+Misc (Commands):
+- mvn clean install -DskipTests
+- npm install react-export-excel --save
+- npm install react-datepicker --save
