@@ -34,6 +34,7 @@ public class Solution {
 		}
 		
 		System.out.println( foundValidBalls ? "YES" : "NO" );
+		
 		// Close scanner
 		read.close();
 	}
