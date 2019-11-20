@@ -1,0 +1,21 @@
+<html ng-app="modulesApp">
+
+    <head>
+        <title>More Directives App</title>
+        <script src="../angular.js"></script>
+        <script src="myModule.js"></script>
+        <script src="app.js"></script>
+
+        <!-- External module test -->
+        <script src="http://mbenford.github.io/ngTagsInput/js/ng-tags-input.min.js"></script>
+        <link rel="stylesheet" href="http://mbenford.github.io/ngTagsInput/css/ng-tags-input.min.css" />
+    </head>
+
+    <body>
+        <h1>Modules App</h1>
+        <div ng-controller="TagsDemoCtrl as ctrl">
+            <tags-input ng-model="ctrl.tags"></tags-input>
+        </div>
+    </body>
+
+</html>
