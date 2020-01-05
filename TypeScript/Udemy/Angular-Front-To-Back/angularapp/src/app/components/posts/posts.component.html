@@ -1,0 +1,26 @@
+<!-- () brackets mean output -->
+<!-- [] brackets mean input -->
+
+<app-post-form
+  [currentPost]="currentPost"
+  (newPost)="onNewPost($event)"
+  [isEdit]="isEdit"
+  (updatedPost)="onUpdatedPost($event)"
+>
+</app-post-form>
+
+<h2>Posts</h2>
+
+<div class="card" *ngFor="let post of posts">
+  
+  <div class="card-body">
+    <h3><a routerLink="/post/{{post.id}}">{{ post.title }}</a></h3>
+    <p>{{ post.body }}</p>
+    
+    <hr>
+
+    <button (click)="removePost(post)" class="btn btn-danger"><i class="fa fa-times"></i></button>
+    <button (click)="editPost(post)" class="btn btn-light"><i class="fa fa-pencil"></i></button>
+  </div>
+
+</div>
