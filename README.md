@@ -61,3 +61,4 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. Jenkins 2 Bootcamp (**Jason Taylor @ Udemy**)
 1. JShell Basics (**JavaBrains @ YouTube**)
 1. Java Programming for Complete Beginners (**in28Minutes @ Udemy**)
+1. PostgreSQL (**Amigoscode @ YouTube**)
