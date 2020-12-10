@@ -66,4 +66,3 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. Java Servlets and JSP - Build Java EE(JEE) app in 25 Steps (**in28Minutes @ Udemy**)
 1. Docker Essentials (Docker & Containers) (**Amigoscode @ Teachable**)
 1. Spring Security Basics (**JavaBrains @ YouTube**)
-1. Node.js Basics (**JavaBrains @ YouTube**)
