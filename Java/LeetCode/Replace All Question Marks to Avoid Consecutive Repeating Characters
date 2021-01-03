@@ -1,0 +1,40 @@
+// https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/
+
+class Solution {
+    
+    public String modifyString(String s) {
+        if (s.length() == 1) {
+            return "a";
+        }
+        
+        StringBuilder sb = new StringBuilder(s);
+        for (int i = 0; i < sb.length(); ++i) {
+            boolean hasNextChar = ( i+1 < sb.length() );
+            boolean hasPreviousChar = ( i-1 >= 0 );
+            char currentChar = sb.charAt(i);
+            
+            if (currentChar == '?') {
+                if (hasNextChar && !hasPreviousChar) {
+                    char nextChar = sb.charAt(i+1);
+                    sb.setCharAt(i, nextChar == 'a' ? 'b' : 'a');
+                }
+                else if (!hasNextChar && hasPreviousChar) {
+                    char previousChar = sb.charAt(i-1);
+                    sb.setCharAt(i, previousChar == 'a' ? 'b' : 'a');
+                }
+                else if (hasNextChar && hasPreviousChar) {
+                    char nextChar = sb.charAt(i+1);
+                    char previousChar = sb.charAt(i-1);
+                    for (char c = 'a'; c <= 'z'; ++c) {
+                        if (c != nextChar && c != previousChar) {
+                            sb.setCharAt(i, c);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
+        return sb.toString();
+    }
+}
