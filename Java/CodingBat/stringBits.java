@@ -9,3 +9,15 @@ public String stringBits(String str) {
   }
   return output.toString();
 }
+
+// Recursive solution (for fun)
+
+/*
+public String stringBits(String str) {
+  if (str.length() <= 1 ) {
+    return str;
+  }
+
+  return str.charAt(0) + stringBits( str.substring(2) );
+}
+*/
