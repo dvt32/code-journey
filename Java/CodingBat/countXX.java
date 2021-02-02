@@ -10,7 +10,7 @@ int countXX(String str) {
   return xxCount;
  }
 
-// Recursive solution
+// Recursive solution (for fun)
 
 /*
 int countXX(String str) {
