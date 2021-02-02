@@ -9,3 +9,15 @@ int countXX(String str) {
   }
   return xxCount;
  }
+
+// Recursive solution
+
+/*
+int countXX(String str) {
+  if ( !str.contains("xx") ) {
+    return 0;
+  }
+  
+  return 1 + countXX( str.substring(str.indexOf("xx")+1) );
+}
+*/
