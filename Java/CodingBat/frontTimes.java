@@ -8,3 +8,16 @@ public String frontTimes(String str, int n) {
   }
   return output.toString();
 }
+
+// Recursive solution (for fun)
+
+/*
+public String frontTimes(String str, int n) {
+  if (n == 0) {
+    return "";
+    
+  }
+  
+  return (str.length() < 3 ? str : str.substring(0, 3)) + frontTimes(str, n-1);
+}
+*/
