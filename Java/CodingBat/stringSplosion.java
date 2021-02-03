@@ -7,3 +7,19 @@ public String stringSplosion(String str) {
   }
   return output.toString();
 }
+
+// Recursive solution (for fun)
+
+/*
+int i = -1;
+public String stringSplosion(String str) {
+  i++;
+  
+  if (i == (str.length()-1)) {
+    i = -1;
+    return str;
+  }
+  
+  return str.substring(0, i+1) + stringSplosion(str);
+}
+*/
