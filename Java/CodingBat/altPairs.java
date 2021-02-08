@@ -14,3 +14,18 @@ public String altPairs(String str) {
   }
   return output.toString();
 }
+
+// Recursive solution (for fun)
+
+/*
+public String altPairs(String str) {
+  if (str.length() <= 2) {
+    return str;
+  }
+  if (str.length() <= 4) {
+    return str.substring(0, 2);
+  }
+  
+  return str.substring(0, 2) + altPairs(str.substring(4));
+}
+*/
