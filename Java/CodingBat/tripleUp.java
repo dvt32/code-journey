@@ -14,3 +14,31 @@ public boolean tripleUp(int[] nums) {
   
   return false;
 }
+
+// Recursive solution (for fun)
+
+/*
+public boolean tripleUp(int[] nums) {
+  if (nums.length < 3) {
+    return false;
+  }
+  
+  return tripleUp(nums, 1);
+}
+
+public boolean tripleUp(int[] nums, int i) {
+  if (i == nums.length-1) {
+    return false;
+  }
+  
+  if ( 
+       (nums[i] - nums[i-1]) == 1 && 
+       (nums[i+1] - nums[i]) == 1
+     )
+  {
+    return true;
+  }
+  
+  return tripleUp(nums, i+1);
+}
+*/
