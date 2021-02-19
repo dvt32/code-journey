@@ -17,7 +17,7 @@ public int last2(String str) {
   return count;
 }
 
-// Add recursive solution (for fun)
+// Recursive solution (for fun)
 
 /*
 public int last2(String str) {
