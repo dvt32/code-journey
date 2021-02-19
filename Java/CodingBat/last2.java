@@ -16,3 +16,27 @@ public int last2(String str) {
   
   return count;
 }
+
+// Add recursive solution (for fun)
+
+/*
+public int last2(String str) {
+  if (str.length() < 3) {
+    return 0;
+  }
+  
+  return last2(str, str.substring(str.length()-2), 0);
+}
+
+public int last2(String str, final String lastTwoChars, int i) {
+  if (i == str.length()-2) {
+    return 0;
+  }
+  
+  if (str.substring(i, i+2).equals(lastTwoChars)) {
+    return 1 + last2(str, lastTwoChars, i+1);
+  }
+  
+  return last2(str, lastTwoChars, i+1);
+}
+*/
