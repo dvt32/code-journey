@@ -11,3 +11,20 @@ public boolean hasOne(int n) {
   
   return false;
 }
+
+// Recursive solution (for fun)
+
+/*
+public boolean hasOne(int n) {
+  if (n == 0) {
+    return false;
+  }
+  
+  int digit = n % 10;
+  if (digit == 1) {
+    return true;
+  }
+  
+  return hasOne(n / 10);
+}
+*/
