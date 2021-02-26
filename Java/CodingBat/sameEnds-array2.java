@@ -9,3 +9,23 @@ public boolean sameEnds(int[] nums, int len) {
   
   return true;
 }
+
+// Recursive solution (for fun)
+
+/*
+public boolean sameEnds(int[] nums, int len) {
+  return sameEnds(nums, len, 0, len);
+}
+
+public boolean sameEnds(int[] nums, int len, int i, int j) {
+  if (i == len) {
+    return true;
+  }
+  
+  if (nums[i] != nums[nums.length - j]) {
+    return false;
+  }
+  
+  return sameEnds(nums, len, i+1, j-1);
+}
+*/
