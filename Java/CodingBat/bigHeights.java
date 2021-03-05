@@ -11,3 +11,17 @@ public int bigHeights(int[] heights, int start, int end) {
   
   return bigStepCount;
 }
+
+// Recursive solution (for fun)
+
+/*
+public int bigHeights(int[] heights, int start, int end) {
+  if (start == end) {
+    return 0;
+  }
+  
+  int abs = Math.abs( heights[start] - heights[start+1] );
+  
+  return (abs >= 5 ? 1 : 0) + bigHeights(heights, start+1, end);
+}
+*/
