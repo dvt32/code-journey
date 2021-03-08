@@ -21,3 +21,37 @@ public boolean modThree(int[] nums) {
   
   return false;
 }
+
+// Recursive solution (for fun)
+
+/*
+public boolean modThree(int[] nums) {
+  return modThree(nums, 0, 0, 0);
+}
+
+public boolean modThree(
+  int[] nums, 
+  int consecutiveEvenNumberCount, 
+  int consecutiveOddNumberCount, 
+  int i) 
+{
+  if (i == nums.length) {
+    return false;
+  }
+  
+  if (nums[i] % 2 == 0) {
+    consecutiveOddNumberCount = 0;
+    consecutiveEvenNumberCount++;
+  }
+  else {
+    consecutiveEvenNumberCount = 0;
+    consecutiveOddNumberCount++;
+  }
+  
+  if (consecutiveEvenNumberCount == 3 || consecutiveOddNumberCount == 3) {
+    return true;
+  }
+  
+  return modThree(nums, consecutiveEvenNumberCount, consecutiveOddNumberCount, i+1);
+}
+*/
