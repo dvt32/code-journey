@@ -22,3 +22,33 @@ public int[] withoutTen(int[] nums) {
   
   return nums;
 }
+
+// Recursive solution (for fun)
+
+/*
+public int[] withoutTen(int[] nums) {
+  return withoutTen(nums, 0, nums.length-1, false);
+}
+
+public int[] withoutTen(int[] nums, int i, int j, boolean flag) {
+  if (i == nums.length) {
+    return nums;
+  }
+  
+  if (!flag && nums[i] == 10) {
+    nums[i] = 0;
+    flag = true;
+  }
+  
+  if (flag && j > i) {
+    if (nums[j] != 10) {
+      int temp = nums[i];
+      nums[i] = nums[j];
+      nums[j] = temp;
+    }
+    return withoutTen(nums, i, j-1, true);
+  }
+  
+  return withoutTen(nums, i+1, nums.length-1, false);
+}
+*/
