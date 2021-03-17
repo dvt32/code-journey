@@ -79,4 +79,3 @@ public int centeredAverage(
   return centeredAverage;
 }
 */
-
