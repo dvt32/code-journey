@@ -29,21 +29,21 @@ public int[] zeroMax(int[] nums, int i) {
   }
   
   if (nums[i] == 0) {
-    nums[i] = getMaxOddValue(nums, i, i+1, 0);
+    nums[i] = getMaxOddValue(nums, i+1, 0);
   }
   
   return zeroMax(nums, i+1);
 }
 
-public int getMaxOddValue(int[] nums, int i, int j, int maxOddValue) {
-  if (j == nums.length) {
+public int getMaxOddValue(int[] nums, int i, int maxOddValue) {
+  if (i == nums.length) {
     return maxOddValue;
   }
   
-  if (nums[j] % 2 == 1 && nums[j] > maxOddValue) {
-    maxOddValue = nums[j];
+  if (nums[i] % 2 == 1 && nums[i] > maxOddValue) {
+    maxOddValue = nums[i];
   }
 
-  return getMaxOddValue(nums, i, j+1, maxOddValue);
+  return getMaxOddValue(nums, i+1, maxOddValue);
 }
 */
