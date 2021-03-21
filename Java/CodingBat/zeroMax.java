@@ -47,3 +47,35 @@ public int getMaxOddValue(int[] nums, int i, int maxOddValue) {
   return getMaxOddValue(nums, i+1, maxOddValue);
 }
 */
+
+// Alternative recursive solution without parameter for max odd value
+
+/*
+public int[] zeroMax(int[] nums) {
+  return zeroMax(nums, 0);
+}
+
+public int[] zeroMax(int[] nums, int i) {
+  if (i == nums.length) {
+    return nums;
+  }
+  
+  if (nums[i] == 0) {
+    nums[i] = getMaxOddValue(nums, i+1);
+  }
+  
+  return zeroMax(nums, i+1);
+}
+
+public int getMaxOddValue(int[] nums, int i) {
+  if (i == nums.length) {
+    return (nums[i-1] % 2 == 1) ? nums[i-1] : 0; 
+  }
+  
+  if (nums[i] % 2 == 1) {
+    return Math.max(nums[i], getMaxOddValue(nums, i+1));
+  }
+
+  return getMaxOddValue(nums, i+1);
+}
+*/
