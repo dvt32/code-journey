@@ -20,3 +20,32 @@ public int[] pre4(int[] nums) {
   
   return newArray;
 }
+
+// Recursive solution (for fun)
+
+/*
+public int[] pre4(int[] nums) {
+  int newArrayLength = getNewArrayLength(nums, 0);
+  int[] newArray = new int[newArrayLength];
+  newArray = getFilledNewArray(newArray, newArrayLength, nums, 0);
+  return newArray;
+}
+
+public int getNewArrayLength(int[] nums, int i) {
+  if (i == nums.length || nums[i] == 4) {
+    return 0;
+  }
+  
+  return 1 + getNewArrayLength(nums, i+1);
+}
+
+public int[] getFilledNewArray(int[] newArray, int newArrayLength, int[] nums, int i) {
+  if (i == newArrayLength) {
+    return newArray;
+  }
+  
+  newArray[i] = nums[i];
+  
+  return getFilledNewArray(newArray, newArrayLength, nums, i+1);
+}
+*/
