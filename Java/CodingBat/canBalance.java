@@ -49,3 +49,62 @@ public int getSumSideB(int[] nums, int j) {
   return nums[j] + getSumSideB(nums, j+1);
 }
 */
+
+// Alternative recursive solution #1
+
+/*
+public boolean canBalance(int[] nums) {
+  return canBalance(nums, 0, 0, 0, 1);
+}
+
+public boolean canBalance(int[] nums, int sumSideA, int sumSideB, int i, int j) {
+  if (i == nums.length) {
+    return false;
+  }
+  
+  if (j == i+1) {
+    sumSideA += nums[i];
+  }
+  
+  if (j == nums.length) {
+    if (sumSideA == sumSideB) {
+      return true;
+    }
+    
+    return canBalance(nums, sumSideA, 0, i+1, i+2);
+  }
+  
+  sumSideB += nums[j];
+  
+  return canBalance(nums, sumSideA, sumSideB, i, j+1);
+}
+*/
+
+// Alternative recursive solution #2
+
+/*
+public boolean canBalance(int[] nums) {
+  return canBalance(nums, 0, 0, 0, 1);
+}
+
+public boolean canBalance(int[] nums, int sumSideA, int sumSideB, int i, int j) {
+  if (i == nums.length) {
+    return false;
+  }
+  
+  if (j == i+1) {
+    sumSideA += nums[i];
+  }
+  
+  if (j < nums.length) {
+    sumSideB += nums[j];
+    return canBalance(nums, sumSideA, sumSideB, i, j+1);
+  }
+  
+  if (sumSideA == sumSideB) {
+    return true;
+  }
+  
+  return canBalance(nums, sumSideA, 0, i+1, i+2);
+}
+*/
