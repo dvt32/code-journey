@@ -67,3 +67,4 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. Docker Essentials (Docker & Containers) (**Amigoscode @ Teachable**)
 1. Spring Security Basics (**JavaBrains @ YouTube**)
 1. Introduction to SQL (**Jon Flanders @ Pluralsight**)
+1. Kotlin Crash Course (**Traversy Media w/ Philipp Lackner @ YouTube**)
