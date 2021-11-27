@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ng-complete-guide-a589f": {
+      "hosting": {
+        "angular-config": [
+          "ng-complete-guide-a589f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ng-complete-guide-a589f"
+  }
+}
