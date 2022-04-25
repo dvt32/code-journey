@@ -74,3 +74,4 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. Fundamentals of Cloud Computing (**David Davis @ Pluralsight**)
 1. Artificial Intelligence: The Big Picture of AI (**Matthew Renze @ Pluralsight**)
 1. Data Science: The Big Picture (**Matthew Renze @ Pluralsight**)
+1. Clean Architecture: Patterns, Practices, and Principles (**Matthew Renze @ Pluralsight**)
