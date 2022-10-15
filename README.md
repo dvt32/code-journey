@@ -76,3 +76,4 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. Data Science: The Big Picture (**Matthew Renze @ Pluralsight**)
 1. Clean Architecture: Patterns, Practices, and Principles (**Matthew Renze @ Pluralsight**)
 1. Microservices: The Big Picture (**Antonio Goncalves @ Pluralsight**)
+1. Code With Me: Build a book tracker app (Spring Boot + Cassandra) (**JavaBrains @ YouTube**)
