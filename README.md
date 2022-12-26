@@ -78,3 +78,5 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. Microservices: The Big Picture (**Antonio Goncalves @ Pluralsight**)
 1. Code With Me: Build a book tracker app (Spring Boot + Cassandra) (**JavaBrains @ YouTube**)
 1. Kubernetes Beginner Tutorial (**Automation Step by Step - Raghav Pal @ YouTube**)
+1. Kubernetes Crash Course for Absolute Beginners (**TechWorld with Nana @ YouTube**)
+
