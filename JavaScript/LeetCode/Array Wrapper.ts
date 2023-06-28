@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/array-wrapper/description/
+// https://leetcode.com/problems/array-wrapper
 
 class ArrayWrapper {
     nums: number[];
