@@ -1,15 +1,15 @@
 class ArrayWrapper {
-    nums: number[];
+     nums: number[];
 
-	constructor(nums: number[]) {
+     constructor(nums: number[]) {
         this.nums = nums;
     }
 
-	valueOf() {
+    valueOf() {
         return this.nums.reduce((currentSum, num) => currentSum + num, 0);
     }
 
-	toString() {
+    toString() {
         return JSON.stringify(this.nums);
     }
 };
