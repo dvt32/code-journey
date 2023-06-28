@@ -1,7 +1,7 @@
 class ArrayWrapper {
-     nums: number[];
+    nums: number[];
 
-     constructor(nums: number[]) {
+    constructor(nums: number[]) {
         this.nums = nums;
     }
 
