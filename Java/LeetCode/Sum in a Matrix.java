@@ -3,11 +3,7 @@
 class Solution {
 
     public int matrixSum(int[][] nums) {
-        boolean[][] removed = new boolean[nums.length][];
-        for (int i = 0; i < nums.length; ++i) {
-            removed[i] = new boolean[nums[i].length];
-        }
-        
+        boolean[][] removed = new boolean[nums.length][nums[0].length];
         int score = 0;
         boolean stillRemoving = true;
 
