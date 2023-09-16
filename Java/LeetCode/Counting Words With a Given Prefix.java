@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/count-prefixes-of-a-given-string
+// https://leetcode.com/problems/counting-words-with-a-given-prefix
 
 class Solution {
   
