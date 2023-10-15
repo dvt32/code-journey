@@ -11,3 +11,15 @@ class Solution {
         return str
     }
 }
+
+// Recursive solution
+/*
+class Solution {
+    fun removeOccurrences(s: String, part: String): String {
+        if (!s.contains(part)) {
+            return s
+        } 
+        return removeOccurrences(s.replaceFirst(part, ""), part);
+    }
+}
+*/
