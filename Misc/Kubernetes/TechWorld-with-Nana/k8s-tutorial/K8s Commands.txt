@@ -1,0 +1,72 @@
+minikube start
+kubectl get nodes
+minikube status
+kubectl version
+kubectl get services
+
+kubectl create deployment nginx-depl --image=nginx
+
+kubectl get deployment
+kubectl get pod
+kubectl get replicaset
+
+kubectl edit deployment nginx-depl
+
+kubectl logs <POD-NAME>
+kubectl describe pod <POD-NAME>
+
+kubectl create deployment mongo-depl --image=mongo
+
+kubectl exec -it <MONGO-POD-NAME> -- bin/bash
+
+kubectl delete deployment mongo-depl
+kubectl delete deployment nginx-depl
+
+kubectl apply -f nginx-deployment.yaml
+
+===
+
+kubectl apply -f mongo-secret.yaml
+kubectl get secret
+
+kubectl apply -f mongo.yaml
+kubectl get all
+kubectl get pod
+kubectl get pod --watch
+kubectl describe pod <POD-NAME>
+
+kubectl get pod -o wide
+
+===
+
+minikube service mongo-express-service
+
+===
+
+kubectl get namespace
+kubectl cluster-info
+kubectl create namespace my-namespace
+
+kubectl apply -f mysql-configmap.yaml
+kubectl get configmap
+kubectl apply -f mysql-configmap.yaml --namespace=my-namespace
+kubectl get configmap -n my-namespace
+
+kubens
+kubens my-namespace
+
+===
+
+minikube addons enable ingress
+
+minikube dashboard
+
+kubectl get pod -n kube-sytem
+kubectl get pods -n ingress-nginx
+
+kubectl apply -f dashboard-ingress.yaml
+
+kubectl get ingress -n kubernetes-dashboard
+kubectl get ingress -n kubernetes-dashboard --watch
+
+kubectl describe ingress dashboard-ingress -n kubernetes-dashboard
