@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/find-the-maximum-achievable-number
+// https://leetcode.com/problems/divisible-and-non-divisible-sums-difference
 
 class Solution {
   
