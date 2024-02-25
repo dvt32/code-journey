@@ -13,5 +13,14 @@ class Solution {
 
         return count;
     }
+
+    // Alternative solution
+    /*
+    public int numberOfEmployeesWhoMetTarget(int[] hours, int target) {
+        return (int) Arrays.stream(hours)
+            .filter((el) -> el >= target)
+            .count();
+    }
+    */
     
 }
