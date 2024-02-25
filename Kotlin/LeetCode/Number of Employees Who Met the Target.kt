@@ -14,4 +14,9 @@ class Solution {
         return count;
     }
 
+    // Alternative solution
+    /*
+    fun numberOfEmployeesWhoMetTarget(hours: IntArray, target: Int) = hours.count { it >= target }
+    */
+
 }
