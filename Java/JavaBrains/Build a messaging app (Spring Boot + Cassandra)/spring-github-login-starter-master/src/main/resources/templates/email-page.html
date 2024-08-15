@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inbox</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <style>
+    .container {
+      display: grid;
+      margin-top: 20px;
+
+      grid-template-areas:
+    "header header header"
+    "nav content content"
+    "footer footer footer";
+
+      grid-template-columns: 200px 1fr 200px;
+      grid-template-rows: auto 1fr auto;
+      grid-gap: 10px;
+
+      height: 100vh;
+    }
+
+    header {
+      grid-area: header;
+    }
+
+    nav {
+      grid-area: nav;
+      margin-left: 0.5rem;
+    }
+
+    main {
+      grid-area: content;
+    }
+
+    aside {
+      grid-area: side;
+      margin-right: 0.5rem;
+    }
+
+    footer {
+      grid-area: footer;
+    }
+
+    .body-text {
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h3>
+        Inbox App
+        <small class="text-muted">Welcome, </small>
+        <small class="text-muted" th:text="${userName}">User name</small>
+      </h3>
+    </header>
+
+    <nav>
+      <div class="card">
+        <a href="/compose" class="btn btn-primary">Compose Message</a>
+      </div>
+      <div th:insert="components/folder-list :: folder-list (panelName = 'Folders', folders = ${defaultFolders})"></div>
+      <div th:insert="components/folder-list :: folder-list (panelName = 'User Folders', folders = ${userFolders})"></div>
+    </nav>
+
+    <main>
+      <div class="card">
+        <div class="card-header">View Email</div>
+        <div class="card-body">
+          <dl>
+            <dt>From</dt>
+            <dd th:text="${email.from}"></dd>
+            <dt>To</dt>
+            <dd th:text="${toIds}"></dd>
+            <dt>Subject</dt>
+            <dd th:text="${email.subject}"></dd>
+            <dt>Body</dt>
+            <dd class="body-text" th:text="${email.body}"></dd>
+          </dl>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a th:href="@{'/compose?to=' + ${email.from} + '&id=' + ${email.id}}" class="btn btn-primary me-md-2" type="button">Reply</a>
+            <a th:href="@{'/compose?to=' + ${toIds} + ',' + ${email.from} + '&id=' + ${email.id}}" class="btn btn-primary" type="button">Reply All</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <!-- Footer content -->
+    </footer>
+  </div>
+</body>
+</html>
