@@ -80,3 +80,4 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. Kubernetes Beginner Tutorial (**Automation Step by Step - Raghav Pal @ YouTube**)
 1. Kubernetes Crash Course for Absolute Beginners (**TechWorld with Nana @ YouTube**)
 1. Kubernetes Tutorial for Beginners (**TechWorld with Nana @ YouTube**)
+1. Build a messaging app (Spring Boot + Cassandra) (**JavaBrains @ YouTube**)
