@@ -5,6 +5,28 @@ class Solution {
     fun similarPairs(words: Array<String>): Int {
         var similarPairCount = 0
 
+        for (i in words.indices) {
+            for (j in i + 1 until words.size) {
+                val s1 = words[i].toSet()
+                val s2 = words[j].toSet()
+                if (s1 == s2) {
+                    similarPairCount++
+                }
+            }
+        }
+
+        return similarPairCount
+    }
+    
+}
+
+// Alternative solution
+/*
+class Solution {
+  
+    fun similarPairs(words: Array<String>): Int {
+        var similarPairCount = 0
+
         for (i in 0 until words.size) {
             for (j in i+1 until words.size) {
                 val firstWordChars = mutableSetOf<Char>()
@@ -25,3 +47,4 @@ class Solution {
     }
     
 }
+*/
