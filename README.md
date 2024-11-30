@@ -82,3 +82,4 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. Kubernetes Tutorial for Beginners (**TechWorld with Nana @ YouTube**)
 1. Build a messaging app (Spring Boot + Cassandra) (**JavaBrains @ YouTube**)
 1. Reactive programming with Java (**JavaBrains @ YouTube**)
+1. Maven Essentials (**JavaBrains @ YouTube**)
