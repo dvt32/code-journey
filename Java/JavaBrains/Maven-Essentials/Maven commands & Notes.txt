@@ -1,0 +1,44 @@
+###### Commands
+
+mvn archetype:generate
+
+mvn compile
+
+mvn package
+
+mvn test # Runs tests
+
+mvn install # Puts your own dependency in your .m2 folder (installs it into your local Maven repository)
+
+mvn clean
+
+mvn site
+
+###### Lifecycle
+
+# Default Maven build lifecycle (executing a step, the steps before it also get executed)
+- validate
+- compile
+- test
+- package
+- verify (verify package is fine)
+- install (runs verify automatically)
+- deploy
+
+# Clean Maven lifecycle
+- clean
+
+# Site Maven lifecycle
+- site (generates documentation)
+- site-deploy
+
+###### Plugins
+
+- They add the lifecycle phases
+
+mvn pluginName:phaseName
+
+examples:
+- mvn archetype:generate
+- mvn compiler:compile (shortcut for `mvn compile`)
+
