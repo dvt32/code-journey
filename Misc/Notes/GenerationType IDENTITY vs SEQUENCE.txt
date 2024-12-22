@@ -1,0 +1,4 @@
+GenerationType.IDENTITY = uses AUTOINCREMENT alone (if DB supports it)
+GenerationType.SEQUENCE = uses "sequence" table and sets ID using it
+
+GenerationType.AUTO = uses "hibernate_sequence" table

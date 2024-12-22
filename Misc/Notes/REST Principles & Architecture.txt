@@ -1,0 +1,31 @@
+REST Principles & Architecture
+
+ARCHITECTURE
+---
+1. Client-server architecture
+- Server stores and/or manipulates information and makes it available to te client
+- Client uses that information and displays it to the user or makes another request to the server.
+
+2. Stateless
+- All needed info for communication between client/server is in the HTTP request/response
+- For example authentication: you pass it with every request
+- You can make it stateful, but it makes SCALING more difficult
+
+3. Cacheable
+- Resources can be cached to improve performance
+
+4. Uniform Interface
+- all components follow the same rules to talk to each other
+	- resources (example: user) & resource identifiers (example: "/users/1")
+	- manipulation of resources through HTTP operations like GET, POST etc
+	- clear message type (like "text/html" or "application/json" etc)
+	- HATEOAS (API should return relevant information about the next potential steps - like links etc)
+
+5. Layered
+- components cant see beyond layer, with which they are interacting
+- client connecting to some intermediate component like proxy, has no knowledge of what lies beyond
+- this results in INDEPENDENT components
+
+6. Code on demand (optional)
+- code may be downloaded to extend client functionality
+

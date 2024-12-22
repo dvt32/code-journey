@@ -1,0 +1,27 @@
+Linux/Virtual Machine/Build commands
+
+===
+
+1) Package jar
+---
+mvn package
+
+2) Copy file to VM
+---
+scp my-file.jar dimitar.trifonov@example.place:~/
+
+3) Connect to VM
+---
+ssh dimitar.trifonov@example.place
+
+4) Run on VM (in "prod" mode)
+---
+java -jar -Dspring.profiles.active=prod my-file.jar
+
+===
+
+Bonus:
+a) KILL process
+---
+top -u dimitar.trifonov
+kill -9 <PID>

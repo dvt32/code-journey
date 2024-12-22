@@ -1,0 +1,6 @@
+SHA-256
+
+- Hashing algorithm
+- Part of family of SHA-2
+- SHA-1 is vulnerable and outdated, no reason to use it anymore
+- SHA-256 shorter and more used than SHA-512, so less bandwidth and less potential problems

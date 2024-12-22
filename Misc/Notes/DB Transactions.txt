@@ -1,0 +1,21 @@
+Transactions
+- group of tasks
+
+---
+
+ACID:
+
+1) Atomic
+- either ALL tasks are executed, or NONE of them are executed
+- no partial execution allowed
+
+2) Consistent
+- The data in DB cannot be changed in ways are that not allowed - with invalid DATA for example (if so, transaction is aborted and not executed)
+- if DB was in consistent VALID state before transaction, it should be like that AFTER transaction (otherwise transaction is aborted)
+
+3) Isolated
+- no transaction will affect the existence of ANOTHER transaction (for example with multi-threading)
+
+4) Durable
+- If a transaction commits but the system fails before the data could be written on to the disk, then that data will be updated once the system springs back into action.
+

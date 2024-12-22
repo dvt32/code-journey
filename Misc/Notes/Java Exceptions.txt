@@ -1,0 +1,17 @@
+Java exceptions
+
+1. Checked (Compile-time)
+- FileNotFoundException (because it MAY be not found, so you should prepare)
+- SQLException (database access for example)
+
+2. Unchecked (Runtime) -> program logic error
+- Divide by zero
+- Access index outside of array bounds
+- Errors (beyond your control)
+	- Out of memory
+
+---
+
+“If a client CAN reasonably be expected to RECOVER from an exception, make it a CHECKED exception. 
+
+If a client CANNOT do anything to RECOVER from the exception, make it an UNCHECKED exception.”

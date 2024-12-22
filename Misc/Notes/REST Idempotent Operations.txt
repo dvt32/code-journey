@@ -1,0 +1,22 @@
+Idempotent Operation
+---
+
+- A operation that can be done multiple times and THE RESULT (on the SYSTEM) is the same.
+- Idempotent is about the EFFECT OF THE REQUEST (state of the SYSTEM), not about the HTTP response that you get (those can differ).
+
+Idempontent  operations:
+- GET (and TRACE, HEAD, OPTION)
+- PUT
+- DELETE
+
+PUT is idempotent, because if we send the same update multiple times, it shouldn't change resource.
+
+DELETE is idempotent, because first time resource is deleted, second time no side effects to system.
+
+POST is NOT idempotent, because it creates a new resource every time (but it can be modified to be idempotent).
+
+PATCH is NOT idempotent (but can also be modified to be idempontent). Here is an example why:
+- we want to add item to shopping cart
+- PUT = send whole shopping cart data, 
+  PATCH = only add item to shopping cart
+- if we send PATCH again, item will be added again and resource will have different state

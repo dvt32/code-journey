@@ -1,0 +1,11 @@
+Spring Beans & Components
+
+BEANS: 
+- The objects that form the backbone of your application and that are MANAGED by Spring IoC Container
+	-> an object that the Spring container instantiates, assembles, and manages.
+
+Component is any class that you want to be managed by Spring
+
+---
+
+@Bean - when you don't have access to class definition

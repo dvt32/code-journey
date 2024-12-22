@@ -1,0 +1,7 @@
+Java Bytecode
+
+- Source code (.java) is COMPILED to Bytecode (.class). 
+- This helps achieve PLATFORM INDEPENDENCE
+- We run the .class files and JVM decides what machine code toe execute (JVM Windows, JVM Linux, JVM Mac)
+- We need JVM to INTERPRET bytecode
+- Bytecode is machine-level language, which runs on JVM

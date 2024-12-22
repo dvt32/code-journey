@@ -1,0 +1,4 @@
+COMPOSITE PRIMARY KEY
+
+- When 2 or more colums are primary key (for example: primary key is (movie_id, star_id))
+- Useful in Many-To-Many

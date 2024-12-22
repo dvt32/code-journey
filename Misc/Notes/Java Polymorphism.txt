@@ -1,0 +1,19 @@
+Java Polymorphism
+
+1. Static (Compile-time) Polymorphism
+- Method Overloading
+
+A obj = new A();
+obj.add(1, 2);
+obj.add(1, 2, 3); // methods with same name, different params, COMPILER says "ok, i have to call these 2 methods"
+
+
+---
+
+2. Dynamic (Runtime) Polymorphism
+- Method Overriding
+
+A obj = new B(); // B extends A
+obj.doStuff(); // A & B have foo() method
+
+-> At runtime JVM says "it's a B object and B overrides doStuff() so B.doStuff() will be called"

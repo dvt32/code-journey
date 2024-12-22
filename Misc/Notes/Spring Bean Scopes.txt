@@ -1,0 +1,19 @@
+Spring Bean Scopes
+
+There are FIVE (5) SCOPES!
+
+1. SINGLETON 
+- one instance per Spring container (default scope)
+- if you autowire bean multiple times, same instance will be retrieved every time
+
+2. PROTOTYPE 
+- new instance every time bean is requested from the Spring container
+- if you autowire bean multiple times, new instance will be retrieved every time
+
+---
+
+3. REQUEST - same as PROTOTYPE but for WEB APPLICATION (new instance every HTTP request)
+
+4. SESSION - new instance for each HTTP session by the container
+
+5. GLOBAL-SESSION - used to create global-session beans for Portlet applications

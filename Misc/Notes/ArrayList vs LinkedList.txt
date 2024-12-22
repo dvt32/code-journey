@@ -1,0 +1,15 @@
+ArrayList vs LinkedList
+
+---
+
+ArrayList:
+- slower manipulation (create, update, delete)
+- faster get (because ARRAY)
+- uses dynamic array
+- implements List
+
+LinkedList:
+- faster manipulation (create, update, delete)
+- slower get
+- uses doubly-linked list
+- implemenets List & Queue

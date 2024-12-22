@@ -1,0 +1,7 @@
+CSRF
+
+---
+
+- Makes user perform a request without him wanting to (for example send a GET/POST request for something he didn't intent do do)
+
+- Solution: CSRF token (which is passed via request, otherwise request can't be executed, for example via Postman)

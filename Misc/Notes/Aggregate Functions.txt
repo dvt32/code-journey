@@ -1,0 +1,13 @@
+Aggregate Functions
+
+---
+
+Aggregate functions:
+- AVG(), SUM(), MIN(), MAX(), COUNT() etc
+
+Usage (example):
+
+# Selects average salary of employees grouping them by name
+SELECT name, SUM(salary)
+FROM employees
+GROUP BY name; # don't have to use it, but useful for grouping results

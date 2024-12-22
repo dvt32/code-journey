@@ -1,0 +1,21 @@
+Hibernate Lifecycles/Session
+
+- SessionFactory 
+	-> factory for creating connections to database
+- Session 
+	-> connection to database
+	-> used for creating transactions
+
+---
+
+- TRANSIENT object
+	-> not saved in database
+	-> not associated with Session (must be saved first)
+- PERSISTENT object 
+	-> object saved in database and tracked by Hibernate
+	-> associated with Session (changes to data will be reflected in database)
+	-> only until transaction is comitted & session is closed
+- DETACHED object
+	-> object WAS saved in database and WAS tracked by Hibernate
+	-> NO LONGER associated with Session
+	-> we can manually detach before ending session

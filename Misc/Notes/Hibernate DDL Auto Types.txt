@@ -1,0 +1,28 @@
+Hibernate DDL Auto Types:
+- spring.jpa.hibernate.ddl-auto.
+
+The standard Hibernate property values are: create, update, create-drop, validate and none:
+
+1) create 
+– Hibernate first drops existing tables, then creates new tables
+
+2) update 
+- the object model created based on the mappings (annotations or XML) is compared with the existing schema, and then Hibernate updates the schema according to the diff. 
+- It never deletes the existing tables or columns even if they are no more required by the application
+
+3) create-drop 
+- similar to create, with the addition that Hibernate will drop the database after all operations are completed. 
+- Typically used for unit testing
+
+4) validate 
+– Hibernate only validates whether the tables and columns exist, otherwise it throws an exception
+
+5) none 
+– this value effectively turns off the DDL generation
+
+---
+
+Spring Boot internally defaults 
+this parameter value to create-drop 
+if no schema manager has been detected, 
+otherwise none for all other cases.

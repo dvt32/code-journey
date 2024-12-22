@@ -1,0 +1,23 @@
+Maven lifecycle.
+
+- 1) "validate"
+	- validate that the project is correct
+	- and all info is available for next phases
+
+- 2) "compile"
+	- compile source code of project
+
+- 3) "test"
+	- execute tests on compiled source code
+
+- 4) "package"
+	- create JAR/WAR package from code
+
+- 5) (?) "verify"
+	- run QA checks on integration tests
+
+- 6) "install"
+	- installs package in LOCAL Maven repo
+
+- 7) "deploy"
+	- copies the final package to the REMOTE repository (for sharing with other devs).

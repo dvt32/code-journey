@@ -1,0 +1,21 @@
+SQL Commands (Main Ones)
+
+1) DDL (Data Definition Language)
+- CREATE - create databases, tables, indexes etc
+- ALTER - update databases, tables etc
+- DROP - delete databases, tables etc
+
+2) DML (Data Manipulation Language)
+- SELECT - fetch data from table (may also be part of DQL)
+- INSERT - insert data (rows) into table
+- UPDATE - update existing data in table
+- DELETE - delete data from table
+
+3) TCL (Transaction Control Language)
+- COMMIT - commits (executes?) transaction
+- ROLLBACK - rollback transaction (undo it if error occurs)
+- SAVEPOINT - checkpoint in transaction
+
+4) DCL (Data Control Language)
+- GRANT - give access to specific users/roles on DB objects like tables
+- REVOKE - remove user privileges to do stuff with DB objects

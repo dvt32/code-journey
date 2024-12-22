@@ -1,0 +1,18 @@
+Gradle vs Maven
+---
+
+Gradle intended to avoid Maven drawbacks
+
+Gradle:
+- Uses DSL (domain-specific language) based on Groovy/Kotlin for project structure
+- Less verbose build files
+- Faster than Maven
+- Avoids Java compilation
+- Has "tasks"
+
+Maven:
+- Uses XML for project structure
+- More verbose build files
+- Slower than Gradle
+- Necessary Java compilation
+- Has "phases"

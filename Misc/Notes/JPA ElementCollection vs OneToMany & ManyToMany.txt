@@ -1,0 +1,14 @@
+@ElementCollection vs @OneToMany/@ManyToMany
+
+---
+
+Basic or Embedded: @ElementCollection
+Entities: @OneToMany or @ManyToMany
+
+@ElementCollection:
+- the relation is managed (only) by the entity in which the relation is defined
+- table contains id reference to the owning entity plus basic or embedded attributes
+
+@OneToMany / @ManyToMany:
+- can also be managed by the other entity
+- join table or column(s) typically contains id references only

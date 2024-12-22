@@ -1,0 +1,38 @@
+NoSQL 
+---
+
+Useful video:
+- https://www.youtube.com/watch?v=uD3p_rZPBUQ
+
+1. What is NoSQL?
+- Stands for "NOT ONLY SQL" or "No-relations SQL"
+- A Non-Relational Database (No Tables)
+- Used for BIG DATA & real-time web apps
+- There are multiple TYPES of NoSQL databases
+
+2. What is Big Data?
+- Data sets SO LARGE that traditional ways for storage/processing are not suitable
+- Massive increase in data volume within last decade
+- Social networks, search engines etc
+- Challenges in storage, capture, analysis, transfer, etc
+
+3. NoSQL Advantages (over RDBMS)
+- Handles Big Data
+- Data Models - no predefined DB schema like RDMBS
+- Data Structure - handles UNSTRUCTURED data
+- CHEAPER to manage
+- Has HORIZONTAL scaling (not bigger box, but MORE small boxes where data is divided)
+
+4. RDBMS Advantages (over NoSQL)
+- Better for relational data (connected data)
+- Normalization
+- Well known language (SQL)
+- Data Integrity (constraints)
+- ACID Compliance
+
+5. Types of NoSQL Databases
+- Document Databases (MongoDB, CouchDB) - like JSON, multiple docs with key-value pairs
+- Column Databases (Apache Cassandra) - good for analytics
+- Key-Value Stores (Redis, Couchbase Server) - simplest
+- Cache Systems (Redis, Memcache)
+- Graph Databases (Neo4j)

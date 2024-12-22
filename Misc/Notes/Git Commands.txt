@@ -1,0 +1,61 @@
+Git commands
+
+---
+
+1) Create Empty Repo
+
+git init
+
+---
+
+2) Clone Existing Repo
+
+git clone <repo>
+
+---
+
+3) Stage Changes
+
+git add *
+
+---
+
+4) Commit Changes
+
+git commit -m <message>
+
+---
+
+5) Push changes
+
+git push <remote>
+
+---
+
+6) Switch to branch
+
+git checkout <branch-name>
+
+---
+
+7) Pull changes
+
+git pull <remote>
+
+---
+
+8) Status of changed files
+
+git status
+
+---
+
+9) Fetch changes (no downloading them locally)
+
+git fetch
+
+---
+
+10) Merge
+
+git merge

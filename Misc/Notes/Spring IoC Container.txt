@@ -1,0 +1,4 @@
+Spring IoC Container (or "Spring Context")
+
+-> represented by ApplicationContext interface
+-> responsible for instantiating/configuring/assembling/managing lifecycle of beans

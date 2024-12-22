@@ -1,0 +1,21 @@
+ORDER BY vs GROUP BY
+
+---
+
+ORDER BY
+- orders data in ascending/descending order
+
+examples:
+- SELECT * FROM student ORDER BY age;
+- SELECT * FROM student ORDER BY age DESC;
+
+----
+
+GROUP BY:
+- groups data
+- useful for aggregate functions (for example sum(salary) of employee)
+
+examples:
+- SELECT name, age FROM student GROUP BY grade;
+- SELECT name, age FROM student WHERE age > 15 GROUP BY grade;
+

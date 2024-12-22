@@ -1,0 +1,24 @@
+JWT:
+- You go to support in-person for problems you are having
+- Support guy gives you a piece of paper:
+	- It is signed (for validity/authorization)
+	- It contains your issues
+
+
+
+Session ID = reference token (it contains a REFERENCE to your data, aka tells how to FIND it)
+JWT = value token (it actually contains your data)
+
+JWT can be sent via a COOKIE (header) or LOCAL STORAGE.
+
+JWT is a string (Base64 encoded), from which you can extract the data:
+- 1) Header (Algorithm & Token Type, INSTRUCTIONS for SIGNATURE)
+- 2) Payload (Data - user data etc, NOTHING CONFIDENTIAL LIKE PASSWORD OR SOCIALSECURITY NUMBER - only JUST ENOUGH for the SERVER to recognize "Oh, it's THIS person!")
+- 3) Signature
+	- can be calculated ONLY by the server issuing the token
+	- if someone tries to manipulate the payload, the SIGNATURE won't match for it and it won't work
+	- "omg but the hacker can see the algorithm!" NO, cause he doesn't have the SECRET KEY, which only the SERVER has!
+
+- The point of JWT is NOT to hide data (anyone that can decode Base64 can get the payload)
+- JWT is for AFTER authentication (after user has entered valid password) and it helps to remember the person that was logged in
+- JWT is for AUTHORIZATION
