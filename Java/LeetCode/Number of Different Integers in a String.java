@@ -5,7 +5,7 @@ import java.math.BigInteger;
 class Solution {
     
     public int numDifferentIntegers(String word) {
-        String[] nums = word.split("[a-z]+");
+        String[] nums = word.split("\\D+"); // or "[a-z]+"
         Set<BigInteger> uniqueNums = new HashSet<>();
         
         for (String num : nums) {
