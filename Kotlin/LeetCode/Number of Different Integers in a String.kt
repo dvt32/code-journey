@@ -3,7 +3,7 @@
 class Solution {
 
     fun numDifferentIntegers(word: String): Int {
-        val nums = word.split("\\D+".toRegex())
+        val nums = word.split("\\D+".toRegex()) // or "[a-z]+"
         val uniqueNums = mutableSetOf<BigInteger>()
 
         nums.forEach {
