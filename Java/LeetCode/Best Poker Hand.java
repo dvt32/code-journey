@@ -13,7 +13,7 @@ class Solution {
         }
 
         Map<Integer, Integer> rankCounts = new HashMap<>();
-        boolean foundThree = false, foundTwo = false;
+        boolean foundTwo = false;
         
         for (int rank : ranks) {
             rankCounts.put(rank, rankCounts.getOrDefault(rank, 0) + 1);
