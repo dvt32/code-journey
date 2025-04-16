@@ -6,7 +6,7 @@ class Solution {
         int reverseDegree = 0;
 
         for (int i = 0; i < s.length(); ++i) {
-            reverseDegree += (27 - (s.charAt(i) - 'a' + 1)) * (i+1);
+            reverseDegree += (26 - (s.charAt(i) - 'a')) * (i+1);
         }
 
         return reverseDegree;
