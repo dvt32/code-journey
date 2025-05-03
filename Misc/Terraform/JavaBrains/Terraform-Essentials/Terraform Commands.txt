@@ -1,0 +1,33 @@
+# NOTE: Run it every time you add a new module
+terraform init
+
+terraform plan
+
+terraform apply
+
+terraform destroy
+
+terraform plan --out=myplan.tfplan
+
+terraform apply .\myplan.tfplan
+
+terraform fmt
+
+terraform init -upgrade
+
+terraform output
+
+terraform graph
+
+terraform graph > graph.dot
+
+terraform workspace list
+
+terraform workspace --help
+
+terraform workspace show
+
+terraform workspace new qa
+
+# NOTE: You have to run 'terraform destroy' before you can delete a workspace
+terraform workspace select default 

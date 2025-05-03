@@ -1,0 +1,11 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "data.aws_subnet_ids.subnet_ids" [label="data.aws_subnet_ids.subnet_ids"];
+  "data.aws_vpc.default" [label="data.aws_vpc.default"];
+  "aws_instance.app_server" [label="aws_instance.app_server"];
+  "aws_s3_bucket.b" [label="aws_s3_bucket.b"];
+  "aws_security_group.allow_port_8080" [label="aws_security_group.allow_port_8080"];
+  "data.aws_subnet_ids.subnet_ids" -> "data.aws_vpc.default";
+  "aws_instance.app_server" -> "aws_security_group.allow_port_8080";
+}
