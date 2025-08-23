@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/count-almost-equal-pairs-i/
 
 class Solution {
-
+    
     public int countPairs(int[] nums) {
         int count = 0;
 
@@ -10,17 +10,20 @@ class Solution {
                 if (nums[i] == nums[j]) {
                     count++;
                     continue;
-                } else {
-                    String x = String.valueOf(nums[i] > nums[j] ? nums[i] : nums[j]);
-                    String y = String.valueOf(nums[i] > nums[j] ? nums[j] : nums[i]);
-                    for (int m = 0; m < x.length(); ++m) {
-                        for (int n = m+1; n < x.length(); ++n) {
-                            StringBuilder xSwapped = new StringBuilder(x);
-                            xSwapped.setCharAt(m, x.charAt(n));
-                            xSwapped.setCharAt(n, x.charAt(m));
-                            if (Integer.parseInt(xSwapped.toString()) == Integer.parseInt(y)) {
-                                count++;
-                            }
+                }
+
+                String x = String.valueOf(nums[i] > nums[j] ? nums[i] : nums[j]);
+                String y = String.valueOf(nums[i] > nums[j] ? nums[j] : nums[i]);
+                
+                boolean matched = false;
+                for (int m = 0; m < x.length() && !matched; ++m) {
+                    for (int n = m+1; n < x.length() && !matched; ++n) {
+                        StringBuilder xSwapped = new StringBuilder(x);
+                        xSwapped.setCharAt(m, x.charAt(n));
+                        xSwapped.setCharAt(n, x.charAt(m));
+                        if (Integer.parseInt(xSwapped.toString()) == Integer.parseInt(y)) {
+                            count++;
+                            matched = true;
                         }
                     }
                 }
@@ -29,5 +32,5 @@ class Solution {
 
         return count;
     }
-
+    
 }
