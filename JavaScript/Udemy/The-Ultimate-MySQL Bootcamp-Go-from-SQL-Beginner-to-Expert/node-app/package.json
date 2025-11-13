@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "mysql2": "^3.15.3"
+  }
+}
