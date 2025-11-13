@@ -1,0 +1,1386 @@
+SHOW DATABASES;
+
+CREATE DATABASE db;
+
+DROP DATABASE db;
+
+USE db;
+
+SELECT database();
+
+--
+
+CREATE TABLE cats (
+    name VARCHAR(50),
+    age INT
+);
+
+CREATE TABLE dogs (
+    name VARCHAR(50),
+    breed VARCHAR(50),
+    age INT
+);
+
+SHOW TABLES;
+
+SHOW COLUMNS FROM cats;
+
+DESCRIBE cats;
+
+DESC cats;
+
+DROP TABLE cats;
+
+-- This is an SQL comment
+
+--
+
+INSERT INTO cats (name, age) 
+VALUES ('Jenkins', 7);
+
+SELECT * FROM cats;
+
+INSERT INTO cats (name, age) 
+VALUES ('Cat 1', 2), ('Cat 2', 3), ('Cat 3', 4);
+
+CREATE TABLE cats2 (
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL
+);
+
+CREATE TABLE cats3 (    
+    name VARCHAR(20) DEFAULT 'no name provided',    
+    age INT DEFAULT 99  
+);
+
+CREATE TABLE cats4 (    
+    name VARCHAR(20) NOT NULL DEFAULT 'unnamed',    
+    age INT NOT NULL DEFAULT 99 
+);
+
+-- One way of specifying a PRIMARY KEY
+CREATE TABLE unique_cats (
+    cat_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL
+);
+
+-- Another option:
+CREATE TABLE unique_cats2 (
+    cat_id INT,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    PRIMARY KEY (cat_id)
+);
+
+--  AUTO_INCREMENT
+CREATE TABLE unique_cats3 (
+    cat_id INT AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    PRIMARY KEY (cat_id)
+);
+
+--
+
+SELECT * FROM cats;
+SELECT name FROM cats;
+SELECT name, age FROM cats;
+SELECT * FROM cats WHERE age = 4;
+SELECT * FROM cats WHERE name = 'Egg';
+SELECT cat_id AS id, name FROM cats;
+
+UPDATE employees SET last_name = 'Doe';
+UPDATE cats SET age = 14 WHERE name = 'Misty';
+
+DELETE FROM cats WHERE name = 'Egg';
+DELETE FROM cats;
+
+ALTER TABLE shirts MODIFY COLUMN shirt_size VARCHAR(10);
+
+--
+
+source file_name.sql;
+
+SELECT CONCAT('pi', 'ckle');
+ 
+SELECT CONCAT(author_fname, ' ', author_lname) AS author_name FROM books;
+ 
+SELECT CONCAT_WS('-', title, author_fname, author_lname) FROM books;
+
+SELECT SUBSTRING('Hello World', 1, 4);
+ 
+SELECT SUBSTRING('Hello World', 7);
+ 
+SELECT SUBSTRING('Hello World', -3);
+ 
+SELECT SUBSTRING(title, 1, 10) AS 'short title' FROM books;
+ 
+SELECT SUBSTR(title, 1, 10) AS 'short title' FROM books;
+
+SELECT CONCAT(SUBSTRING(title, 1, 10), '...') AS 'short title' FROM books;
+
+SELECT REPLACE(title, ' ', '-') FROM books;
+
+SELECT REVERSE(author_fname) FROM books;
+ 
+SELECT REVERSE('meow meow');
+
+SELECT CONCAT(author_fname, REVERSE(author_fname)) FROM books;
+
+SELECT CHAR_LENGTH(title) as length, title FROM books;
+
+SELECT LENGTH('Hello World'); -- length of string in bytes
+
+SELECT UPPER(title) FROM books;
+SELECT UCASE(title) FROM books;
+
+SELECT LOWER(title) FROM books;
+SELECT LCASE(title) FROM books;
+
+SELECT INSERT('Hello Bobby', 6, 0, 'There'); 
+
+SELECT LEFT('omghahalol!', 3);
+ 
+SELECT RIGHT('omghahalol!', 4);
+ 
+SELECT REPEAT('ha', 4);
+ 
+SELECT TRIM('  pickle  ');
+SELECT TRIM(LEADING '.' FROM '......san antonio..');
+SELECT TRIM(TRAILING '.' FROM '......san antonio..');
+
+--
+
+SELECT REVERSE(UPPER('Why does my cat look at me with such hatred?'));
+ 
+SELECT REPLACE(title, ' ', '->') AS title FROM books;
+ 
+SELECT author_lname AS forwards, REVERSE(author_lname) AS backwards FROM books;
+    
+SELECT UPPER(CONCAT(author_fname, ' ', author_lname)) AS 'full name in caps' FROM books;
+ 
+SELECT CONCAT(title, ' was released in ', released_year) AS blurb FROM books;
+ 
+SELECT title, CHAR_LENGTH(title) AS character_count FROM books;
+ 
+SELECT 
+    CONCAT(SUBSTR(title, 1, 10), '...') AS short_title,
+    CONCAT(author_lname, ',', author_fname) AS author,
+    CONCAT(stock_quantity, ' in stock') AS quantity
+FROM books;
+
+--
+
+SELECT author_lname FROM books;
+ 
+SELECT DISTINCT author_lname FROM books;
+ 
+SELECT author_fname, author_lname FROM books;
+ 
+SELECT DISTINCT CONCAT(author_fname,' ', author_lname) FROM books;
+ 
+SELECT DISTINCT author_fname, author_lname FROM books;
+
+SELECT * FROM books ORDER BY author_lname; 
+SELECT * FROM books ORDER BY author_lname DESC; -- ASC is default
+ 
+DESCRIBE books;
+
+SELECT book_id, author_fname, author_lname, pages
+FROM books ORDER BY 2 desc;
+ 
+SELECT book_id, author_fname, author_lname, pages
+FROM books ORDER BY author_lname, author_fname;
+
+SELECT title FROM books LIMIT 3;
+ 
+SELECT * FROM books LIMIT 1;
+ 
+SELECT title, released_year FROM books 
+ORDER BY released_year DESC LIMIT 5;
+
+SELECT title, released_year FROM books 
+ORDER BY released_year DESC LIMIT 0,5;
+ 
+SELECT title, released_year FROM books 
+ORDER BY released_year DESC LIMIT 1,3;
+ 
+SELECT title, released_year FROM books 
+ORDER BY released_year DESC LIMIT 10,1;
+ 
+SELECT title FROM books LIMIT 5, 123219476457;
+ 
+SELECT title FROM books LIMIT 5, 50;
+
+--
+
+SELECT title, author_fname, author_lname, pages 
+FROM books
+WHERE author_fname LIKE '%da%';
+ 
+SELECT title, author_fname, author_lname, pages 
+FROM books
+WHERE title LIKE '%:%';
+ 
+SELECT * FROM books
+WHERE author_fname LIKE '____';
+ 
+SELECT * FROM books
+WHERE author_fname LIKE '_a_';
+
+-- To select books with '%' in their title:
+SELECT * FROM books
+WHERE title LIKE '%\%%';
+ 
+-- To select books with an underscore '_' in title:
+SELECT * FROM books
+WHERE title LIKE '%\_%';
+
+--
+
+SELECT title FROM books WHERE title LIKE '%stories%';
+ 
+SELECT title, pages FROM books ORDER BY pages DESC LIMIT 1;
+ 
+SELECT 
+    CONCAT(title, ' - ', released_year) AS summary 
+FROM books ORDER BY released_year DESC LIMIT 3;
+ 
+SELECT title, author_lname FROM books WHERE author_lname LIKE '% %';
+ 
+SELECT title, released_year, stock_quantity 
+FROM books ORDER BY stock_quantity LIMIT 3;
+ 
+SELECT title, author_lname 
+FROM books ORDER BY author_lname, title;
+ 
+SELECT title, author_lname 
+FROM books ORDER BY 2,1;
+ 
+SELECT
+    CONCAT(
+        'MY FAVORITE AUTHOR IS ',
+        UPPER(author_fname),
+        ' ',
+        UPPER(author_lname),
+        '!'
+    ) AS yell
+FROM books ORDER BY author_lname;
+
+--
+
+SELECT COUNT(*) FROM books;
+ 
+SELECT COUNT(author_lname) FROM books;
+ 
+SELECT COUNT(DISTINCT author_lname) FROM books;
+ 
+SELECT COUNT(*) FROM books WHERE title LIKE '%the%';
+
+--
+
+SELECT author_lname, COUNT(*) 
+FROM books
+GROUP BY author_lname;
+ 
+SELECT 
+    author_lname, COUNT(*) AS books_written
+FROM
+    books
+GROUP BY author_lname
+ORDER BY books_written DESC;
+
+SELECT MAX(pages) FROM books;
+SELECT MIN(author_lname) FROM books;
+
+SELECT title, pages FROM books
+WHERE pages = (SELECT MAX(pages) FROM books);
+ 
+SELECT MIN(released_year) FROM books;
+
+SELECT title, released_year FROM books 
+WHERE released_year = (SELECT MIN(released_year) FROM books);
+
+--
+
+SELECT author_fname, author_lname, COUNT(*) 
+FROM books 
+GROUP BY author_lname, author_fname;
+
+SELECT CONCAT(author_fname, ' ', author_lname) AS author,  COUNT(*)
+FROM books
+GROUP BY author;
+
+--
+
+SELECT author_lname, MIN(released_year) FROM books GROUP BY author_lname;
+
+SELECT author_lname, MAX(released_year), MIN(released_year) FROM books GROUP BY author_lname;
+
+SELECT 
+	author_lname, 
+	COUNT(*) as books_written, 
+	MAX(released_year) AS latest_release,
+	MIN(released_year)  AS earliest_release,
+      	MAX(pages) AS longest_page_count
+FROM books 
+GROUP BY author_lname;
+
+SELECT 
+	author_lname, 
+        author_fname,
+	COUNT(*) as books_written, 
+	MAX(released_year) AS latest_release,
+	MIN(released_year)  AS earliest_release
+FROM books GROUP BY author_lname, author_fname;
+
+--
+
+SELECT SUM(pages) FROM books;
+
+SELECT author_lname, COUNT(*), SUM(pages)
+FROM books
+GROUP BY author_lname;
+
+--
+
+SELECT AVG(pages) FROM books;
+
+SELECT AVG(released_year) FROM books;
+
+SELECT 
+    released_year, 
+    AVG(stock_quantity), 
+    COUNT(*) FROM books
+GROUP BY released_year;
+
+--
+
+SELECT COUNT(*) FROM books;
+
+SELECT released_year, COUNT(*) 
+FROM books GROUP BY released_year;
+
+SELECT SUM(stock_quantity) FROM books;
+
+SELECT AVG(released_year) 
+FROM books GROUP BY author_lname, author_fname;
+
+SELECT CONCAT(author_fname, ' ', author_lname) AS author, pages FROM books
+WHERE pages = (SELECT MAX(pages) FROM books);
+
+SELECT CONCAT(author_fname, ' ', author_lname) AS author, pages FROM books
+ORDER BY pages DESC LIMIT 1;
+
+SELECT 
+    released_year AS year,
+    COUNT(*) AS '# books',
+    AVG(pages) AS 'avg pages'
+FROM books
+GROUP BY released_year
+ORDER BY released_year;
+
+--
+
+CREATE TABLE people (
+	name VARCHAR(100),
+    	birthdate DATE,
+   	birthtime TIME,
+    	birthdt DATETIME
+);
+
+INSERT INTO people (name, birthdate, birthtime, birthdt)
+VALUES ('Elton', '2000-12-25', '11:00:00', '2000-12-25 11:00:00');
+
+INSERT INTO people (name, birthdate, birthtime, birthdt)
+VALUES ('Lulu', '1985-04-11', '9:45:10', '1985-04-11 9:45:10');
+
+INSERT INTO people (name, birthdate, birthtime, birthdt)
+VALUES ('Juan', '2020-08-15', '23:59:00', '2020-08-15 23:59:00');
+
+--
+
+SELECT CURTIME();
+
+SELECT CURDATE();
+
+SELECT NOW();
+
+INSERT INTO people (name, birthdate, birthtime, birthdt)
+VALUES ('Hazel', CURDATE(), CURTIME(), NOW());
+
+--
+
+SELECT 
+    birthdate,
+    DAY(birthdate),
+    DAYOFWEEK(birthdate),
+    DAYOFYEAR(birthdate)
+FROM people;
+
+SELECT 
+    birthdate,
+    MONTHNAME(birthdate),
+    YEAR(birthdate)
+FROM people;
+
+--
+
+SELECT 
+    birthtime,
+    HOUR(birthtime),
+    MINUTE(birthtime)
+FROM people;
+
+SELECT 
+    birthdt,
+    MONTH(birthdt),
+    DAY(birthdt),
+    HOUR(birthdt),
+    MINUTE(birthdt)
+FROM people;
+
+--
+
+SELECT birthdate, DATE_FORMAT(birthdate, '%a %b %D') FROM people;
+
+SELECT birthdt, DATE_FORMAT(birthdt, '%H:%i') FROM people;
+
+SELECT birthdt, DATE_FORMAT(birthdt, 'BORN ON: %r') FROM people;
+
+--
+
+CREATE TABLE captions (
+  text VARCHAR(150),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE captions2 (
+  text VARCHAR(150),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+--
+
+-- What's a good use case for CHAR?
+
+-- Used for text that we know has a fixed length, e.g., State abbreviations, 
+-- abbreviated company names, etc.
+
+CREATE TABLE inventory (
+    item_name VARCHAR(100),
+    price DECIMAL(8,2),
+    quantity INT
+);
+
+-- What's the difference between DATETIME and TIMESTAMP?
+
+-- They both store datetime information, but there's a difference in the range, 
+-- TIMESTAMP has a smaller range. TIMESTAMP also takes up less space. 
+-- TIMESTAMP is used for things like meta-data about when something is created
+-- or updated.
+
+SELECT CURTIME();
+
+SELECT CURDATE();
+
+SELECT DAYOFWEEK(CURDATE());
+SELECT DAYOFWEEK(NOW());
+SELECT DATE_FORMAT(NOW(), '%w') + 1;
+
+SELECT DAYNAME(NOW());
+SELECT DATE_FORMAT(NOW(), '%W');
+
+SELECT DATE_FORMAT(CURDATE(), '%m/%d/%Y');
+
+SELECT DATE_FORMAT(NOW(), '%M %D at %k:%i');
+
+CREATE TABLE tweets(
+    content VARCHAR(140),
+    username VARCHAR(20),
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+INSERT INTO tweets (content, username) VALUES('this is my first tweet', 'coltscat');
+SELECT * FROM tweets;
+
+INSERT INTO tweets (content, username) VALUES('this is my second tweet', 'coltscat');
+SELECT * FROM tweets;
+
+--
+
+SELECT * FROM books
+WHERE released_year != 2017;
+
+SELECT * FROM books
+WHERE title NOT LIKE '%e%';
+
+--
+
+SELECT * FROM books
+WHERE released_year > 2005;
+
+SELECT * FROM books
+WHERE pages > 500;
+
+SELECT * FROM books
+WHERE pages < 200;
+
+SELECT * FROM books
+WHERE released_year < 2000;
+
+SELECT * FROM books
+WHERE released_year <= 1985;
+
+--
+
+SELECT title, author_lname, released_year FROM books
+WHERE released_year > 2010 AND author_lname = 'Eggers'; -- can also use '%%' instead of AND
+
+SELECT title, author_lname, released_year FROM books
+WHERE released_year > 2010 AND author_lname = 'Eggers'AND title LIKE '%novel%';
+
+--
+
+SELECT title, pages FROM books 
+WHERE CHAR_LENGTH(title) > 30
+AND pages > 500;
+
+SELECT title, author_lname FROM books
+WHERE author_lname = 'Eggers' AND
+released_year > 2010;
+
+-- can also use ||
+SELECT title, author_lname, released_year FROM books
+WHERE author_lname = 'Eggers' OR 
+released_year > 2010;
+
+SELECT title, pages FROM books
+WHERE pages < 200 
+OR title LIKE '%stories%';
+
+--
+
+SELECT title, released_year FROM books
+WHERE released_year <= 2015 AND released_year >= 2004;
+
+SELECT title, released_year FROM books
+WHERE released_year BETWEEN 2004 AND 2014;
+
+SELECT title, released_year FROM books
+WHERE released_year NOT BETWEEN 2004 AND 2014;
+
+--
+
+SELECT * FROM people WHERE birthtime 
+BETWEEN CAST('12:00:00' AS TIME) AND CAST('16:00:00' AS TIME);
+
+SELECT * FROM people 
+WHERE HOUR(birthtime) BETWEEN 12 AND 16;
+
+--
+
+SELECT title, author_lname FROM books
+WHERE author_lname = 'Carver' 
+OR author_lname = 'Lahiri'
+OR author_lname = 'Smith';
+
+SELECT title, author_lname FROM books
+WHERE author_lname IN ('Carver', 'Lahiri', 'Smith');
+
+SELECT title, author_lname FROM books
+WHERE author_lname NOT IN ('Carver', 'Lahiri', 'Smith');
+
+SELECT title, released_year FROM books
+WHERE released_year >= 2000 
+AND released_year % 2 = 1;
+
+--
+
+SELECT title, released_year,
+CASE
+	WHEN released_year >= 2000 THEN 'modern lit'
+    	ELSE '20th century lit' 
+END AS genre
+FROM books;
+
+SELECT 
+    title,
+    stock_quantity,
+    CASE
+        WHEN stock_quantity BETWEEN 0 AND 40 THEN '*'
+        WHEN stock_quantity BETWEEN 41 AND 70 THEN '**'
+        WHEN stock_quantity BETWEEN 71 AND 100 THEN '***'
+        WHEN stock_quantity BETWEEN 101 AND 140 THEN '****'
+        ELSE '*****'
+    END AS stock
+FROM
+    books;
+
+SELECT 
+    title,
+    stock_quantity,
+    CASE
+        WHEN stock_quantity <= 40 THEN '*'
+        WHEN stock_quantity <= 70 THEN '**'
+        WHEN stock_quantity <= 100 THEN '***'
+        WHEN stock_quantity <= 140 THEN '****'
+        ELSE '*****'
+    END AS stock
+FROM
+    books;
+
+--
+
+SELECT * FROM books WHERE title IS NULL;
+
+SELECT * FROM books WHERE title IS NOT NULL;
+
+--
+
+SELECT * FROM books WHERE released_year < 1980;
+
+SELECT * FROM books 
+WHERE author_lname = 'Eggers' OR author_lname = 'Chabon';
+
+SELECT * FROM books
+WHERE author_lname = 'Lahiri' AND released_year > 2000;
+
+SELECT * FROM books
+WHERE pages >= 100 AND pages <= 200;
+
+SELECT * FROM books
+WHERE pages BETWEEN 100 and 200;
+
+SELECT title, author_lname FROM books
+WHERE author_lname LIKE 'C%' OR author_lname LIKE 'S%';
+ 
+SELECT title, author_lname
+FROM books
+WHERE SUBSTR(author_lname, 1, 1) in ('C', 'S');
+ 
+SELECT 
+	title, 
+	author_lname,
+	CASE
+    		WHEN title LIKE '%stories%' THEN 'Short Stories'
+    		WHEN title IN ('Just Kids', 'A Heartbreaking Work of Staggering Genius') THEN 'Memoir'
+    		ELSE 'Novel'
+	END AS type
+FROM books;
+
+SELECT author_fname, author_lname,
+	CASE
+        	WHEN COUNT(*) = 1 THEN '1 book'
+        	ELSE CONCAT(COUNT(*), ' books')
+	END AS 'COUNT'
+FROM books
+WHERE author_lname IS NOT NULL
+GROUP BY author_fname, author_lname;
+
+--
+
+CREATE TABLE contacts (
+	name VARCHAR(100) NOT NULL,
+    phone VARCHAR(15) NOT NULL UNIQUE
+);
+
+INSERT INTO contacts (name, phone)
+VALUES ('billybob', '8781213455');
+
+-- This insert would result in an error:
+INSERT INTO contacts (name, phone)
+VALUES ('billybob', '8781213455');
+
+--
+
+CREATE TABLE users (
+	username VARCHAR(20) NOT NULL,
+    	age INT CHECK (age > 0)
+);
+
+CREATE TABLE palindromes (
+  word VARCHAR(100) CHECK(REVERSE(word) = word)
+)
+
+--
+
+CREATE TABLE users2 (
+    username VARCHAR(20) NOT NULL,
+    age INT,
+    CONSTRAINT age_not_negative CHECK (age >= 0)
+);
+
+CREATE TABLE palindromes2 (
+  word VARCHAR(100),
+  CONSTRAINT word_is_palindrome CHECK(REVERSE(word) = word)
+);
+
+CREATE TABLE companies (
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    CONSTRAINT name_address UNIQUE (name, address)
+);
+
+CREATE TABLE houses (
+  purchase_price INT NOT NULL,
+  sale_price INT NOT NULL,
+  CONSTRAINT sprice_gt_pprice CHECK(sale_price >= purchase_price)
+);
+
+--
+
+ALTER TABLE companies 
+ADD COLUMN phone VARCHAR(15);
+
+ALTER TABLE companies
+ADD COLUMN employee_count INT NOT NULL DEFAULT 1;
+
+ALTER TABLE companies DROP COLUMN phone;
+
+--
+
+RENAME TABLE companies to suppliers;
+
+ALTER TABLE suppliers RENAME TO companies;
+
+ALTER TABLE companies
+RENAME COLUMN name TO company_name;
+
+--
+
+ALTER TABLE companies
+MODIFY company_name VARCHAR(100) DEFAULT 'unknown';
+
+ALTER TABLE suppliers
+CHANGE business biz_name VARCHAR(50);
+
+--
+
+ALTER TABLE houses 
+ADD CONSTRAINT positive_pprice CHECK (purchase_price >= 0);
+
+ALTER TABLE houses DROP CONSTRAINT positive_pprice;
+
+--
+
+SELECT id FROM customers WHERE last_name = 'George';
+SELECT * FROM orders WHERE customer_id = 1;
+
+SELECT * FROM orders 
+WHERE customer_id = (SELECT id FROM customers WHERE last_name = 'George');
+
+-- To perform a (kind of useless) cross join:
+SELECT * FROM customers, orders;
+
+--
+
+-- Our first inner join!
+SELECT * FROM customers
+JOIN orders ON orders.customer_id = customers.id;
+
+SELECT first_name, last_name, order_date, amount FROM customers
+JOIN orders ON orders.customer_id = customers.id;
+
+-- The order doesn't matter here:
+SELECT * FROM orders
+JOIN customers ON customers.id = orders.customer_id;
+
+--
+
+SELECT first_name, last_name, SUM(amount) AS total
+FROM customers
+JOIN orders ON orders.customer_id = customers.id
+GROUP BY first_name , last_name
+ORDER BY total;
+
+--
+
+SELECT first_name, last_name, order_date, amount
+FROM customers 
+LEFT JOIN orders ON orders.customer_id = customers.id;
+
+SELECT order_date, amount, first_name, last_name
+FROM orders
+LEFT JOIN customers ON orders.customer_id = customers.id;
+
+--
+
+SELECT 
+    first_name, 
+    last_name, 
+    IFNULL(SUM(amount), 0) AS money_spent
+FROM customers
+LEFT JOIN orders ON customers.id = orders.customer_id
+GROUP BY first_name , last_name;
+
+--
+
+SELECT first_name, last_name, order_date, amount
+FROM customers
+RIGHT JOIN orders ON customers.id = orders.customer_id;
+
+--
+
+CREATE TABLE customers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(50)
+);
+
+CREATE TABLE orders (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    order_date DATE,
+    amount DECIMAL(8 , 2 ),
+    customer_id INT,
+    FOREIGN KEY (customer_id)
+        REFERENCES customers (id)
+        ON DELETE CASCADE
+);
+
+--
+
+CREATE TABLE students (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50)
+);
+
+CREATE TABLE papers (
+    title VARCHAR(50),
+    grade INT,
+    student_id INT,
+    FOREIGN KEY (student_id) REFERENCES students (id)
+);
+
+SELECT first_name, title, grade
+FROM students
+JOIN papers ON papers.student_id = students.id
+ORDER BY grade DESC;
+
+SELECT first_name, title, grade
+FROM students
+LEFT JOIN papers ON papers.student_id = students.id;
+ 
+SELECT first_name, IFNULL(title, 'MISSING'), IFNULL(grade, 0)
+FROM students 
+LEFT JOIN papers ON papers.student_id = students.id;
+
+SELECT first_name, IFNULL(AVG(grade), 0) AS average
+FROM students
+LEFT JOIN papers ON students.id = papers.student_id
+GROUP BY first_name
+ORDER BY average DESC;
+
+--
+
+SELECT title, rating
+FROM series JOIN reviews ON series.id = reviews.series_id;
+
+--
+
+SELECT title, ROUND(AVG(rating), 2) AS avg_rating
+FROM series
+JOIN reviews ON series.id = reviews.series_id
+GROUP BY title
+ORDER BY avg_rating;
+
+--
+
+SELECT first_name, last_name, rating
+FROM reviewers
+JOIN reviews ON reviews.reviewer_id = reviewers.id;
+
+--
+
+SELECT title AS unreviewed_series
+FROM series
+LEFT JOIN reviews ON series.id = reviews.series_id
+WHERE rating IS NULL;
+
+SELECT title AS unreviewed_series
+FROM reviews
+RIGHT JOIN series ON series.id = reviews.series_id
+WHERE rating IS NULL;
+
+--
+
+SELECT genre, ROUND(AVG(rating), 2) AS avg_rating
+FROM series
+JOIN reviews ON series.id = reviews.series_id
+GROUP BY genre;
+
+--
+
+-- USING CASE 
+SELECT 
+    first_name,
+    last_name,
+    COUNT(rating) AS count,
+    IFNULL(MIN(rating), 0) AS min,
+    IFNULL(MAX(rating), 0) AS max,
+    ROUND(IFNULL(AVG(rating), 0), 2) AS average,
+    CASE
+        WHEN COUNT(rating) >= 10 THEN 'POWERUSER'
+        WHEN COUNT(rating) > 0 THEN 'ACTIVE'
+        ELSE 'INACTIVE'
+    END AS status
+FROM
+    reviewers
+        LEFT JOIN
+    reviews ON reviewers.id = reviews.reviewer_id
+GROUP BY first_name , last_name;
+ 
+-- USING IF 
+SELECT 
+    first_name,
+    last_name,
+    COUNT(rating) AS count,
+    IFNULL(MIN(rating), 0) AS min,
+    IFNULL(MAX(rating), 0) AS max,
+    ROUND(IFNULL(AVG(rating), 0), 2) AS average,
+    IF(COUNT(rating) > 0,
+        'ACTIVE',
+        'INACTIVE') AS status
+FROM
+    reviewers
+        LEFT JOIN
+    reviews ON reviewers.id = reviews.reviewer_id
+GROUP BY first_name , last_name;
+
+--
+
+SELECT title, rating, CONCAT(first_name, ' ', last_name) AS reviewer
+FROM reviews
+INNER JOIN series ON reviews.series_id = series.id
+INNER JOIN reviewers ON reviews.reviewer_id = reviewers.id;
+
+SELECT title, rating, CONCAT(first_name, ' ', last_name) AS reviewer
+FROM series INNER JOIN reviews ON reviews.series_id = series.id
+INNER JOIN reviewers ON reviews.reviewer_id = reviewers.id;
+
+SELECT title, rating, CONCAT(first_name, ' ', last_name) AS reviewer
+FROM reviewers
+INNER JOIN reviews ON reviews.reviewer_id = reviewers.id
+INNER JOIN series ON reviews.series_id = series.id;
+
+--
+
+-- INSTEAD OF TYPING THIS QUERY ALL THE TIME...
+SELECT 
+    title, released_year, genre, rating, first_name, last_name
+FROM
+    reviews
+        JOIN
+    series ON series.id = reviews.series_id
+        JOIN
+    reviewers ON reviewers.id = reviews.reviewer_id;
+ 
+-- WE CAN CREATE A VIEW:
+CREATE VIEW full_reviews AS
+SELECT title, released_year, genre, rating, first_name, last_name FROM reviews
+JOIN series ON series.id = reviews.series_id
+JOIN reviewers ON reviewers.id = reviews.reviewer_id;
+ 
+-- NOW WE CAN TREAT THAT VIEW AS A VIRTUAL TABLE 
+-- (AT LEAST WHEN IT COMES TO SELECTING)
+SELECT * FROM full_reviews;
+
+--
+
+CREATE VIEW ordered_series AS
+SELECT * FROM series ORDER BY released_year;
+
+CREATE OR REPLACE VIEW ordered_series AS
+SELECT * FROM series ORDER BY released_year DESC;
+
+ALTER VIEW ordered_series AS
+SELECT * FROM series ORDER BY released_year;
+
+DROP VIEW ordered_series;
+
+--
+
+SELECT 
+    title, 
+    AVG(rating),
+    COUNT(rating) AS review_count
+FROM full_reviews
+GROUP BY title HAVING COUNT(rating) > 1;
+
+--
+
+SELECT title, AVG(rating)
+FROM full_reviews
+GROUP BY title WITH ROLLUP;
+
+SELECT title, COUNT(rating)
+FROM full_reviews
+GROUP BY title WITH ROLLUP;
+
+SELECT first_name, released_year, genre, AVG(rating)
+FROM full_reviews
+GROUP BY released_year, genre, first_name WITH ROLLUP;
+
+--
+
+-- To View Modes:
+SELECT @@GLOBAL.sql_mode;
+SELECT @@SESSION.sql_mode;
+
+-- To Set Them:
+SET GLOBAL sql_mode = 'modes';
+SET SESSION sql_mode = 'modes'; -- example: 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION'
+
+SHOW WARNINGS;
+
+--
+
+CREATE TABLE employees (
+    emp_no INT PRIMARY KEY AUTO_INCREMENT,
+    department VARCHAR(20),
+    salary INT
+);
+
+INSERT INTO employees (department, salary) VALUES
+('engineering', 80000),
+('engineering', 69000),
+('engineering', 70000),
+('engineering', 103000),
+('engineering', 67000),
+('engineering', 89000),
+('engineering', 91000),
+('sales', 59000),
+('sales', 70000),
+('sales', 159000),
+('sales', 72000),
+('sales', 60000),
+('sales', 61000),
+('sales', 61000),
+('customer service', 38000),
+('customer service', 45000),
+('customer service', 61000),
+('customer service', 40000),
+('customer service', 31000),
+('customer service', 56000),
+('customer service', 55000);
+
+SELECT emp_no, department, salary, AVG(salary) OVER() FROM employees;
+
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    MIN(salary) OVER(),
+    MAX(salary) OVER()
+FROM employees;
+
+SELECT emp_no, department, salary, MIN(salary), MAX(salary)
+FROM employees;
+
+--
+
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    AVG(salary) OVER(PARTITION BY department) AS dept_avg,
+    AVG(salary) OVER() AS company_avg
+FROM employees;
+
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    COUNT(*) OVER(PARTITION BY department) as dept_count
+FROM employees;
+
+--
+
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    SUM(salary) OVER(PARTITION BY department ORDER BY salary) AS rolling_dept_salary,
+    SUM(salary) OVER(PARTITION BY department) AS total_dept_salary
+FROM employees;
+
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    MIN(salary) OVER(PARTITION BY department ORDER BY salary DESC) as rolling_min
+FROM employees;
+
+--
+
+SELECT 
+    emp_no, 
+    department, 
+    salary,
+    ROW_NUMBER() OVER(PARTITION BY department ORDER BY SALARY DESC) as dept_row_number,
+    RANK() OVER(PARTITION BY department ORDER BY SALARY DESC) as dept_salary_rank,
+    RANK() OVER(ORDER BY salary DESC) as overall_rank,
+    DENSE_RANK() OVER(ORDER BY salary DESC) as overall_dense_rank,
+    ROW_NUMBER() OVER(ORDER BY salary DESC) as overall_num
+FROM employees ORDER BY overall_rank;
+
+--
+
+SELECT 
+    emp_no, 
+    department, 
+    salary,
+    NTILE(4) OVER(PARTITION BY department ORDER BY salary DESC) AS dept_salary_quartile,
+    NTILE(4) OVER(ORDER BY salary DESC) AS salary_quartile
+FROM employees;
+
+--
+
+SELECT 
+    emp_no, 
+    department, 
+    salary,
+    FIRST_VALUE(emp_no) OVER(PARTITION BY department ORDER BY salary DESC) AS highest_paid_dept,
+    FIRST_VALUE(emp_no) OVER(ORDER BY salary DESC) AS highest_paid_overall
+FROM employees;
+
+--
+
+SELECT 
+    emp_no, 
+    department, 
+    salary,
+    salary - LAG(salary) OVER(ORDER BY salary DESC) as salary_diff
+FROM employees;
+
+SELECT 
+    emp_no, 
+    department, 
+    salary,
+    salary - LAG(salary) OVER(PARTITION BY department ORDER BY salary DESC) as dept_salary_diff
+FROM employees;
+
+--
+
+CREATE TABLE users (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE photos (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    image_url VARCHAR(255) NOT NULL,
+    user_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+CREATE TABLE comments (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    comment_text VARCHAR(255) NOT NULL,
+    photo_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(photo_id) REFERENCES photos(id),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+CREATE TABLE likes (
+    user_id INTEGER NOT NULL,
+    photo_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(user_id) REFERENCES users(id),
+    FOREIGN KEY(photo_id) REFERENCES photos(id),
+    PRIMARY KEY(user_id, photo_id)
+);
+
+CREATE TABLE follows (
+    follower_id INTEGER NOT NULL,
+    followee_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(follower_id) REFERENCES users(id),
+    FOREIGN KEY(followee_id) REFERENCES users(id),
+    PRIMARY KEY(follower_id, followee_id)
+);
+
+CREATE TABLE tags (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  tag_name VARCHAR(255) UNIQUE,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE photo_tags (
+    photo_id INTEGER NOT NULL,
+    tag_id INTEGER NOT NULL,
+    FOREIGN KEY(photo_id) REFERENCES photos(id),
+    FOREIGN KEY(tag_id) REFERENCES tags(id),
+    PRIMARY KEY(photo_id, tag_id)
+);
+
+--
+
+SELECT * FROM users
+ORDER BY created_at
+LIMIT 5;
+
+SELECT 
+    DAYNAME(created_at) AS day,
+    COUNT(*) AS total
+FROM users
+GROUP BY day
+ORDER BY total DESC
+LIMIT 2;
+
+
+SELECT username
+FROM users
+LEFT JOIN photos
+    ON users.id = photos.user_id
+WHERE photos.id IS NULL;
+
+-- alternative solution
+SELECT * FROM users WHERE users.id NOT IN (SELECT user_id FROM photos); 
+
+SELECT 
+    username,
+    photos.id,
+    photos.image_url, 
+    COUNT(*) AS total
+FROM photos
+INNER JOIN likes
+    ON likes.photo_id = photos.id
+INNER JOIN users
+    ON photos.user_id = users.id
+GROUP BY photos.id
+ORDER BY total DESC
+LIMIT 1;
+
+-- alternative solution
+SELECT username 
+FROM users 
+WHERE id = (
+	SELECT user_id 
+	FROM photos 
+	WHERE id = (
+		SELECT photo_id FROM likes GROUP BY photo_id ORDER BY COUNT(*) DESC LIMIT 1
+	)
+);
+
+SELECT (SELECT COUNT(*) FROM photos) / (SELECT COUNT(*) FROM users);
+
+SELECT tag_name, COUNT(tag_name)
+FROM tags
+JOIN photo_tags ON photo_tags.tag_id = tags.id
+GROUP BY tag_name
+ORDER BY COUNT(tag_name) DESC LIMIT 5;
+
+SELECT tags.tag_name, 
+       Count(*) AS total 
+FROM   photo_tags 
+       JOIN tags 
+         ON photo_tags.tag_id = tags.id 
+GROUP  BY tags.id 
+ORDER  BY total DESC 
+LIMIT  5; 
+
+
+SELECT username, 
+       COUNT(*) AS num_likes 
+FROM   users 
+       INNER JOIN likes 
+               ON users.id = likes.user_id 
+GROUP  BY likes.user_id 
+HAVING num_likes = (SELECT COUNT(*) 
+                    FROM photos);
+
+SELECT id, username 
+FROM users 
+WHERE id IN 
+	(SELECT user_id 
+	FROM likes 
+	GROUP BY user_id 
+	HAVING COUNT(photo_id) = (SELECT COUNT(*) FROM photos)
+	) 
+ORDER BY id;
+
+--
+
+DELIMITER $$
+CREATE TRIGGER must_be_adult
+     BEFORE INSERT ON users FOR EACH ROW
+     BEGIN
+          IF NEW.age < 18
+          THEN
+              SIGNAL SQLSTATE '45000'
+                    SET MESSAGE_TEXT = 'Must be an adult!';
+          END IF;
+     END;
+$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER example_cannot_follow_self
+     BEFORE INSERT ON follows FOR EACH ROW
+     BEGIN
+          IF NEW.follower_id = NEW.followee_id
+          THEN
+               SIGNAL SQLSTATE '45000'
+                    SET MESSAGE_TEXT = 'Cannot follow yourself, silly';
+          END IF;
+     END;
+$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER create_unfollow
+    AFTER DELETE ON follows FOR EACH ROW 
+    BEGIN
+    	INSERT INTO unfollows
+    	SET follower_id = OLD.follower_id, followee_id = OLD.followee_id;
+    END;
+$$
+DELIMITER ;
+
+SHOW TRIGGERS;
+
+DROP TRIGGER trigger_name;
+
+--
+
+-- Challenge 1
+SELECT DATE_FORMAT(MIN(created_at), "%M %D %Y") AS earliest_date 
+FROM users;
+
+-- Challenge 2
+SELECT * 
+FROM users 
+WHERE created_at = (SELECT MIN(created_at) FROM users); 
+
+-- Challenge 3
+SELECT MONTHNAME(created_at) AS month, 
+       COUNT(*)              AS count 
+FROM users 
+GROUP BY month 
+ORDER BY count DESC;
+
+-- Challenge 4
+SELECT Count(*) AS yahoo_users 
+FROM users 
+WHERE email LIKE '%@yahoo.com'; 
+
+-- Challenge 5
+SELECT 
+	CASE 
+         WHEN email LIKE '%@gmail.com' THEN 'gmail' 
+         WHEN email LIKE '%@yahoo.com' THEN 'yahoo' 
+         WHEN email LIKE '%@hotmail.com' THEN 'hotmail' 
+         ELSE 'other' 
+       END AS provider, 
+       COUNT(*) AS total_users 
+FROM users 
+GROUP BY provider 
+ORDER BY total_users DESC; 
