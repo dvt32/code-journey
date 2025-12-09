@@ -86,3 +86,4 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. JPA and Hibernate Essentials (**JavaBrains**)
 1. Terraform Essentials (**JavaBrains**)
 1. The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert (**Colt Steele @ Udemy**)
+1. Java Concurrency (**JavaBrains**)
