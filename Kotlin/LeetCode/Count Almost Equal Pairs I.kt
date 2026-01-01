@@ -1,6 +1,7 @@
 // https://leetcode.com/problems/count-almost-equal-pairs-i
 
 class Solution {
+    
     fun countPairs(nums: IntArray): Int {
         var count = 0;
 
@@ -12,7 +13,7 @@ class Solution {
                 }
 
                 val x = if (nums[i] > nums[j]) nums[i].toString() else nums[j].toString();
-                val y = if (nums[i] > nums[j]) nums[j].toString() else nums[i].toString();
+                val y = if (nums[i] > nums[j]) nums[j] else nums[i];
                 
                 var matched = false;
                 for (m in 0 until x.length) {
@@ -22,7 +23,7 @@ class Solution {
                         val xSwapped = StringBuilder(x);
                         xSwapped[m] = x[n];
                         xSwapped[n] = x[m];
-                        if (xSwapped.toString().toInt() == y.toInt()) {
+                        if (xSwapped.toString().toInt() == y) {
                             count++;
                             matched = true;
                         }
@@ -33,4 +34,5 @@ class Solution {
 
         return count;
     }
+    
 }
