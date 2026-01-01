@@ -15,7 +15,7 @@ var countPairs = function(nums) {
             }
 
             let x = (nums[i] > nums[j] ? nums[i].toString() : nums[j].toString());
-            let y = parseInt((nums[i] > nums[j] ? nums[j].toString() : nums[i].toString()));
+            let y = (nums[i] > nums[j] ? nums[j] : nums[i]);
             
             let matched = false;
             for (let m = 0; m < x.length && !matched; ++m) {
@@ -23,7 +23,6 @@ var countPairs = function(nums) {
                     let xSwappedArr = x.split('');
                     [xSwappedArr[m], xSwappedArr[n]] = [xSwappedArr[n], xSwappedArr[m]];
                     let xSwapped = parseInt(xSwappedArr.join(''));
-
                     if (xSwapped == y) {
                         count++;
                         matched = true;
