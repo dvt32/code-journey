@@ -20,9 +20,9 @@ var countPairs = function(nums) {
             let matched = false;
             for (let m = 0; m < x.length && !matched; ++m) {
                 for (let n = m+1; n < x.length && !matched; ++n) {
-                    let xSwapped = x.split('');
-                    [xSwapped[m], xSwapped[n]] = [x[n], x[m]];
-                    xSwapped = xSwapped.join('');
+                    let xSwappedArr = x.split('');
+                    [xSwappedArr[m], xSwappedArr[n]] = [xSwappedArr[n], xSwappedArr[m]];
+                    let xSwapped = xSwapped.join('');
 
                     if (parseInt(xSwapped) == parseInt(y)) {
                         count++;
