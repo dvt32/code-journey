@@ -13,7 +13,7 @@ class Solution {
                 }
 
                 String x = String.valueOf(nums[i] > nums[j] ? nums[i] : nums[j]);
-                String y = String.valueOf(nums[i] > nums[j] ? nums[j] : nums[i]);
+                Integer y = (nums[i] > nums[j] ? nums[j] : nums[i]);
                 
                 boolean matched = false;
                 for (int m = 0; m < x.length() && !matched; ++m) {
@@ -21,7 +21,7 @@ class Solution {
                         StringBuilder xSwapped = new StringBuilder(x);
                         xSwapped.setCharAt(m, x.charAt(n));
                         xSwapped.setCharAt(n, x.charAt(m));
-                        if (Integer.parseInt(xSwapped.toString()) == Integer.parseInt(y)) {
+                        if (Integer.parseInt(xSwapped.toString()) == y) {
                             count++;
                             matched = true;
                         }
