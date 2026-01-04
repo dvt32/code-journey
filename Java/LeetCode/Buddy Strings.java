@@ -50,7 +50,7 @@ class Solution {
         {
             return true;
         }
-        else{
+        else {
            return false; 
         } 
     }
