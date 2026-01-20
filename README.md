@@ -88,3 +88,4 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert (**Colt Steele @ Udemy**)
 1. Java Concurrency (**JavaBrains**)
 1. Java Essentials (**JavaBrains**)
+1. Java Collections Essentials (**JavaBrains**)
