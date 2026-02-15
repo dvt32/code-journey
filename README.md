@@ -90,3 +90,4 @@ Here is a list of the courses that I've completed so far (in a mostly chronologi
 1. Java Essentials (**JavaBrains**)
 1. Java Collections Essentials (**JavaBrains**)
 1. Java Generics In-Depth (**JavaBrains**)
+1. Java Interview Prep Level 1 (**JavaBrains**)
