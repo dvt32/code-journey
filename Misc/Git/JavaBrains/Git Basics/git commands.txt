@@ -1,0 +1,49 @@
+git init
+
+git status
+
+git add <filename>
+git add .
+
+git commit -m "My first commit"
+git commit	# write commit message in editor
+git commit --amend
+git commit -a -m "Message here" # add files first & then commit them
+
+git log
+git log -2	# last 2 commits
+git lon -n 3 	# last 3 commits (alt syntax)
+git log --author "Dimitar Trifonov"
+git log --name-only
+git log --name-status
+git log -p
+git log --graph
+
+git checkout -- <filename> # revert to last commit's status
+git checkout -- .
+git checkout <branch-name> # switch to branch
+git checkout -b <branch-name> # create the branch and switch to it
+git checkout <commit-hash> # switch to commit, for example "c1e0b922a72204299b4247b2dc94587ebf8f0d1b"
+
+git restore --staged <filename>
+git restore <filename>
+
+git diff
+git diff --staged
+
+git branch
+git branch <branch-name> # create branch
+git branch -d <branch-name> # delete branch
+git branch -a # show all branches (incl. remote)
+
+git merge <branch-name> # merge current branch with the changes from branch-name
+
+git rebase <branch-name>
+
+git push
+
+git pull
+git pull --rebase
+
+git remote
+git remote show origin
